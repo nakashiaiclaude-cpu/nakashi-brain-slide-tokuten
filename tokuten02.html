@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スライドデザインルール集30選＋テンプレート集｜特典②</title>
+<style>
+  :root{--panel:#fff;--ink:#1a2233;--muted:#5b6275;--line:#e6e8f0;--teal:#2f7a8a;--teal-soft:#eaf3f4;--orange:#e8772e;--cream:#fdf0d9;--shadow:0 10px 40px rgba(20,24,60,.12)}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,Meiryo,system-ui,sans-serif;color:var(--ink);background:#fbf9f5;line-height:1.7;padding:32px 16px 90px}
+  .logo{position:fixed;top:14px;right:16px;z-index:50;height:28px;filter:drop-shadow(0 2px 6px rgba(26,34,51,.18))}
+  .wrap{max-width:860px;margin:0 auto}
+  .card{background:var(--panel);border-radius:20px;box-shadow:var(--shadow);padding:40px 32px}
+  .eyebrow{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--teal);font-weight:800;background:var(--teal-soft);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  h1{font-size:27px;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .lead{color:var(--muted);font-size:14px;margin:0 0 6px}
+  .hr{height:1px;background:var(--line);margin:26px 0}
+  h2.secH{font-size:19px;margin:0 0 6px;font-weight:800}
+  p.secSub{color:var(--muted);font-size:13px;margin:0 0 18px}
+
+  .toolbar{display:flex;justify-content:flex-end;margin-bottom:4px}
+  .pdfBtn{border:1.5px solid var(--navy);background:var(--navy);color:#fff;font-size:12.5px;font-weight:800;border-radius:9px;padding:8px 16px;cursor:pointer}
+  .pdfBtn:hover{background:var(--orange);border-color:var(--orange)}
+
+  .cheatGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .cheat{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
+  .cheat .cn{font-size:12.5px;color:var(--teal);font-weight:800;margin-bottom:4px}
+  .cheat .cv{font-size:19px;font-weight:900;color:var(--ink)}
+  .cheat .cd{font-size:12px;color:var(--muted);margin-top:4px}
+
+  .tplCard{border:1px solid var(--line);border-radius:14px;padding:22px 22px;margin:16px 0;background:#fff}
+  .tplHead{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .tplHead .tn{width:30px;height:30px;border-radius:9px;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;flex:none}
+  .tplHead .tt{font-size:16px;font-weight:800}
+  .tplBody{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
+  .wireframe{width:200px;height:120px;background:var(--cream);border-radius:8px;padding:8px;flex:none;display:flex;flex-direction:column;gap:6px}
+  .wf-box{background:#fff;border:1.5px solid var(--teal);border-radius:4px}
+  .wf-box.accent{border-color:var(--orange);background:#fceee0}
+  .tplImg{width:104px;height:104px;object-fit:contain;flex:none;filter:drop-shadow(0 6px 10px rgba(20,24,60,.16))}
+  .tplText{flex:1;min-width:180px}
+  .tplText .use{font-size:13.5px;color:var(--ink);margin-bottom:6px}
+  .tplText .when{font-size:12.5px;color:var(--muted)}
+  .tplText .when b{color:var(--teal)}
+
+  .searchBox{position:sticky;top:12px;z-index:5;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;box-shadow:0 4px 16px rgba(20,24,60,.06)}
+  .searchBox input{border:0;outline:0;flex:1;font-size:15px;color:var(--ink);font-family:inherit}
+  .count{font-size:12.5px;color:var(--muted);margin:6px 2px 18px}
+  .catFilters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}
+  .catFilters button{border:1.5px solid var(--line);background:#fff;color:var(--muted);font-size:12.5px;font-weight:700;border-radius:999px;padding:6px 13px;cursor:pointer}
+  .catFilters button.active{background:var(--teal);border-color:var(--teal);color:#fff}
+  .cat{font-size:16.5px;font-weight:800;margin:28px 0 6px;display:flex;align-items:center;gap:10px}
+  .cat .tag{font-size:12px;font-weight:800;color:#fff;background:var(--teal);width:24px;height:24px;border-radius:8px;display:grid;place-items:center;flex:none}
+  .rule{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:#fff;display:flex;gap:14px;align-items:center}
+  .rule img.ruleImg{width:88px;height:88px;object-fit:contain;flex:none;filter:drop-shadow(0 5px 8px rgba(20,24,60,.15))}
+  .rule .rtext{flex:1;min-width:0}
+  .rule .rt{font-size:14.5px;font-weight:800;color:var(--ink)}
+  .rule .rt .n{color:var(--orange);margin-right:6px}
+  .rule .rd{font-size:13.5px;color:var(--muted);margin-top:5px}
+  .closing{margin-top:26px;text-align:center;color:var(--muted);font-size:14px;border-top:1px dashed var(--line);padding-top:20px}
+  .madeby{margin-top:14px;text-align:center;font-size:12.5px;color:#9aa0b5}
+
+  .promptSection{margin-top:8px}
+  .promptNote{background:var(--cream);border:1.5px dashed var(--orange);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+  .promptNote .noteLabel{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:var(--orange);margin-bottom:6px}
+  .promptNote p{margin:0 0 6px;font-size:13px;color:var(--ink)}
+  .promptNote p:last-child{margin-bottom:0}
+  .promptNote .fillinDemo{display:inline-block;background:#fff3e0;border:1.5px solid var(--orange);border-radius:5px;padding:0 5px;color:#b25a1e;font-weight:700}
+  .promptBoxWrap{position:relative}
+  .promptBox{background:#1a2233;color:#eef1f8;border-radius:14px;padding:22px 20px 20px;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:12.5px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow-y:auto}
+  .promptBox .fillin{background:rgba(232,119,46,.28);border:1px solid var(--orange);border-radius:4px;padding:0 4px;color:#ffd9b8;font-weight:700}
+  .promptBox .ph{color:#8b93ab}
+  .copyBar{display:flex;justify-content:flex-end;gap:8px;margin-bottom:8px}
+  .copyBtn{border:1.5px solid var(--orange);background:var(--orange);color:#fff;font-size:12.5px;font-weight:800;border-radius:9px;padding:8px 16px;cursor:pointer}
+  .copyBtn:hover{background:#d4661f}
+  .copyBtn.copied{background:var(--teal);border-color:var(--teal)}
+  @media(max-width:560px){.promptBox{font-size:11.5px;padding:18px 14px}}
+  @media(max-width:560px){.card{padding:26px 18px}h1{font-size:18px}.cheatGrid{grid-template-columns:1fr 1fr}.wireframe{width:150px}.tplImg{width:76px;height:76px}.rule img.ruleImg{width:64px;height:64px}}
+
+  @media print{
+    body{background:#fff;padding:0}
+    .logo,.toolbar,.searchBox,.catFilters,.count,.copyBar{display:none!important}
+    .card{box-shadow:none;padding:0}
+    .rule,.tplCard,.cheat{break-inside:avoid;box-shadow:none}
+    .promptBox{background:#fff;color:var(--ink);border:1.5px solid var(--line);max-height:none;overflow:visible}
+    .promptBox .fillin{background:#fff3e0;color:#b25a1e}
+    @page{size:A4;margin:16mm}
+  }
+</style>
+</head>
+<body>
+<img class="logo" src="assets/なかしー_ロゴ_透過.png" alt="なかしー｜ゼロから始めるClaude Code伴走">
+<div class="wrap">
+  <div class="card">
+    <div class="toolbar"><button class="pdfBtn" onclick="window.print()">🖨 PDFとして保存</button></div>
+    <span class="eyebrow">特典② なかしー｜ゼロから始めるClaude Code伴走</span>
+    <h1>スライドデザインルール集30選＋テンプレート集</h1>
+    <p class="lead">配色・余白・文字量などの実践ルール30個と、色の数・扁平率など<strong>「知っておくべき一般常識」</strong>の早見表、型（テンプレート）6種をまとめました。印刷して手元に置いておきたい方は、右上のボタンからPDF保存できます。</p>
+
+    <div class="hr"></div>
+
+    <h2 class="secH">パートA：数字で分かる「良い資料」の目安</h2>
+    <p class="secSub">迷ったら、まずこの数字に収まっているか確認してください</p>
+    <div class="cheatGrid">
+      <div class="cheat"><div class="cn">色数</div><div class="cv">3〜5色</div><div class="cd">多くても5色まで。3色から検討を始める</div></div>
+      <div class="cheat"><div class="cn">コントラスト比</div><div class="cv">4.5:1以上</div><div class="cd">文字と背景の見やすさの最低ライン（WCAG AA）</div></div>
+      <div class="cheat"><div class="cn">本文の文字サイズ</div><div class="cv">18pt以上</div><div class="cd">見出しは28pt前後が目安</div></div>
+      <div class="cheat"><div class="cn">扁平率</div><div class="cv">90〜110%</div><div class="cd">文字を無理に縦横に潰さない範囲</div></div>
+      <div class="cheat"><div class="cn">1スライドの要素数</div><div class="cv">3〜6個</div><div class="cd">それ以上は情報過多のサイン</div></div>
+      <div class="cheat"><div class="cn">使用フォント数</div><div class="cv">2種類まで</div><div class="cd">見出し用・本文用で十分</div></div>
+    </div>
+
+    <div class="hr"></div>
+
+    <h2 class="secH">パートB：型（テンプレート）集</h2>
+    <p class="secSub">場面ごとに「箱の並べ方」を先に決めておくと、AIへの依頼も迷わなくなります</p>
+
+    <div class="tplCard">
+      <div class="tplHead"><div class="tn">1</div><div class="tt">表紙型</div></div>
+      <div class="tplBody">
+        <div class="wireframe">
+          <div class="wf-box" style="height:20%"></div>
+          <div class="wf-box accent" style="height:45%"></div>
+          <div class="wf-box" style="height:20%"></div>
+        </div>
+        <img class="tplImg" src="images/型1_表紙型_サンプル.png" alt="">
+        <div class="tplText">
+          <div class="use">上から「属性帯（会社名・日付）」「メインタイトル」「サブテキスト」の3段構成。</div>
+          <div class="when"><b>使う場面：</b>提案書・セミナー資料・ピッチ資料の1枚目全般</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tplCard">
+      <div class="tplHead"><div class="tn">2</div><div class="tt">課題提起型（チェックリスト）</div></div>
+      <div class="tplBody">
+        <div class="wireframe">
+          <div class="wf-box" style="height:18%"></div>
+          <div class="wf-box" style="height:15%"></div>
+          <div class="wf-box" style="height:15%"></div>
+          <div class="wf-box accent" style="height:15%"></div>
+        </div>
+        <img class="tplImg" src="images/型2_課題提起型_サンプル.png" alt="">
+        <div class="tplText">
+          <div class="use">見出し＋チェックボックス付きの箇条書き3〜5個。最後の1つだけアクセント色で強調。</div>
+          <div class="when"><b>使う場面：</b>読み手に「自分ごと」として気づかせたい冒頭部分</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tplCard">
+      <div class="tplHead"><div class="tn">3</div><div class="tt">ビフォーアフター比較型</div></div>
+      <div class="tplBody">
+        <div class="wireframe" style="flex-direction:row">
+          <div class="wf-box" style="width:45%;height:100%"></div>
+          <div class="wf-box accent" style="width:10%;height:30%;align-self:center"></div>
+          <div class="wf-box" style="width:45%;height:100%"></div>
+        </div>
+        <img class="tplImg" src="images/型3_ビフォーアフター比較型_サンプル.png" alt="">
+        <div class="tplText">
+          <div class="use">左に「これまで」、中央に矢印、右に「これから」を左右対称に配置。</div>
+          <div class="when"><b>使う場面：</b>導入前後の効果訴求、旧手法と新手法の比較</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tplCard">
+      <div class="tplHead"><div class="tn">4</div><div class="tt">プロセス・ステップ型</div></div>
+      <div class="tplBody">
+        <div class="wireframe" style="flex-direction:row;align-items:center">
+          <div class="wf-box" style="width:22%;height:60%"></div>
+          <div class="wf-box" style="width:22%;height:60%"></div>
+          <div class="wf-box" style="width:22%;height:60%"></div>
+          <div class="wf-box accent" style="width:22%;height:60%"></div>
+        </div>
+        <img class="tplImg" src="images/型4_プロセスステップ型_サンプル.png" alt="">
+        <div class="tplText">
+          <div class="use">同じ大きさの箱を横並びに3〜5個。最後のゴールだけアクセント色にする。</div>
+          <div class="when"><b>使う場面：</b>導入の流れ、サービスの利用手順の説明</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tplCard">
+      <div class="tplHead"><div class="tn">5</div><div class="tt">データ＋結論型</div></div>
+      <div class="tplBody">
+        <div class="wireframe">
+          <div class="wf-box" style="height:60%"></div>
+          <div class="wf-box accent" style="height:30%"></div>
+        </div>
+        <img class="tplImg" src="images/型5_データ結論型_サンプル.png" alt="">
+        <div class="tplText">
+          <div class="use">上部にグラフや数字を1つだけ大きく置き、下部の結論帯で「だから何なのか」を言い切る。</div>
+          <div class="when"><b>使う場面：</b>実績提示、根拠訴求のスライド（凡例や複数指標は詰め込まない）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tplCard">
+      <div class="tplHead"><div class="tn">6</div><div class="tt">まとめ型（結論帯）</div></div>
+      <div class="tplBody">
+        <div class="wireframe">
+          <div class="wf-box" style="height:30%"></div>
+          <div class="wf-box" style="height:30%"></div>
+          <div class="wf-box accent" style="height:30%"></div>
+        </div>
+        <img class="tplImg" src="images/型6_まとめ型_サンプル.png" alt="">
+        <div class="tplText">
+          <div class="use">要点を2〜3個並べたあと、最下部に紺背景の結論帯。キーワードだけアクセント色でハイライト。</div>
+          <div class="when"><b>使う場面：</b>資料の最終ページ、章の締めくくり</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <h2 class="secH">パートC：デザインルール30選</h2>
+    <p class="secSub">作業に詰まったとき、検索して該当箇所だけ確認してください</p>
+
+    <div class="searchBox"><span>🔍</span><input id="search" type="text" placeholder="キーワードで検索（例：余白、コントラスト、文字量）"></div>
+    <div class="count" id="count"></div>
+    <div class="catFilters" id="filters"></div>
+    <div id="list"></div>
+
+    <div class="hr"></div>
+
+    <h2 class="secH">🎯 全部乗せ・完全プロンプト</h2>
+    <p class="secSub">パートA〜Cの内容をすべて盛り込んだ、スライド1枚をAIに作らせるための完成プロンプトです</p>
+
+    <div class="promptSection">
+      <div class="promptNote">
+        <div class="noteLabel">⚠️ ここは説明文です（プロンプトの一部ではありません）</div>
+        <p>下のグレーの箱の中身だけが、ClaudeCodeやChatGPTにそのまま貼り付けるプロンプト本文です。この説明文（オレンジ点線の枠内）はコピーされません。</p>
+        <p>プロンプト内で <span class="fillinDemo">｛　　　｝</span> のように囲まれている部分が、あなた自身の内容に書き換える必要がある箇所です。コピーしたあと、｛　｝ごと具体的な内容に置き換えてから使ってください（｛　｝の記号ごと消してOKです）。</p>
+      </div>
+
+      <div class="copyBar"><button class="copyBtn" id="copyPromptBtn" onclick="copyMasterPrompt()">📋 プロンプトをコピー</button></div>
+      <div class="promptBoxWrap">
+        <div class="promptBox" id="promptBoxDisplay"></div>
+      </div>
+    </div>
+
+    <div class="closing">迷ったら、この30個のどれかに当てはめて確認してください。<br>ルールは覚えるものではなく、辞書のように「引く」ものです。</div>
+    <div class="madeby">― この特典も、なかしーがClaudeCodeで作りました ―</div>
+  </div>
+</div>
+
+<script>
+const cats = [
+  {tag:"A", name:"配色", rules:[
+    ["メインカラーは3〜5色までに絞る","色数が増えるほど資料の統一感は失われます。プライマリ・アクセント・背景の3色から検討を始めてください。","images/A1_色数を絞る_サンプル.png"],
+    ["60:30:10の比率で配分する","背景60%・サブカラー30%・アクセント10%を目安にすると、うるさくならず引き締まった印象になります。","images/A2_比率を意識する_サンプル.png"],
+    ["アクセントカラーは「ここぞ」の1点だけに使う","強調色を増やすほど、どこが本当に大事か伝わらなくなります。1スライド1アクセントが基本です。","images/A3_アクセント1点_サンプル.png"],
+    ["文字と背景のコントラスト比はAA基準（4.5:1）以上にする","薄いグレー文字×白背景などは読みにくさの典型例。迷ったら文字色を濃くする方向で調整してください。","images/A4_コントラスト_サンプル.png"],
+    ["同系色でグラデーションを作り「安っぽさ」を防ぐ","色相の異なる色を急に組み合わせるより、同系色の濃淡で階調を作るほうが上品にまとまります。","images/A5_グラデーション_サンプル.png"],
+    ["業種のイメージ色を無視しない","医療・清潔感なら青系、飲食・食欲訴求なら暖色系など、業種の慣習色から大きく外れないほうが伝わりやすいです。","images/A6_業種イメージ色_サンプル.png"]
+  ]},
+  {tag:"B", name:"余白・レイアウト", rules:[
+    ["要素と要素の間に「呼吸できる余白」を置く","余白は「何もない場所」ではなく、情報を区切って伝わりやすくする道具です。","images/B1_呼吸できる余白_サンプル.png"],
+    ["余白を削って詰めるより、スライドを分ける","1枚に収めようと余白を削ると、結局読みにくくなります。分けたほうが速く伝わります。","images/B2_詰めずに分ける_サンプル.png"],
+    ["上下左右の余白幅は資料全体で統一する","スライドごとに余白がバラつくと、それだけで「雑」な印象を与えます。","images/B3_余白幅統一_サンプル.png"],
+    ["見えない格子（グリッド）に要素を揃える","要素の左端・上端を揃えるだけで、手作り感のある資料が一気に整って見えます。","images/B4_グリッド整列_サンプル.png"],
+    ["視線は「Z型」または「F型」に流れることを意識する","人の視線の流れに沿って要素を配置すると、説明なしでも情報が伝わりやすくなります。","images/B5_視線の流れ_サンプル.png"],
+    ["装飾のためだけの余白は作らない","意味のない空白は、情報が抜けているように見えてしまうことがあります。","images/B6_装飾のためだけの余白_サンプル.png"]
+  ]},
+  {tag:"C", name:"文字・タイポグラフィ", rules:[
+    ["見出しと本文でウェイトの差をはっきりつける","同じ太さの文字が並ぶと、どこが見出しか瞬時に判断できません。","images/C1_ウェイト差_サンプル.png"],
+    ["1スライドで使うフォントは2種類までにする","フォントが増えるほど統一感が崩れます。見出し用・本文用の2種で十分です。","images/C2_フォント2種類まで_サンプル.png"],
+    ["文字を無理に縦横に圧縮しない（扁平率を保つ）","枠に収めるために文字を潰すと、途端に読みにくく安っぽい印象になります。文字量か枠のほうを調整してください。","images/C3_扁平率_サンプル.png"],
+    ["本文の文字サイズは18pt以上を目安にする","小さすぎる文字は、投影時やスマホ閲覧時に読めなくなります。","images/C4_文字サイズ_サンプル.png"],
+    ["箇条書きの先頭2〜3語を太字にする「太字リードイン」を使う","拾い読みでも内容が伝わるようになり、可読性が大きく上がります。","images/C5_太字リードイン_サンプル.png"],
+    ["文頭表現を揃える「平行文法」でリズムを整える","「〜する」「〜できる」など文体を揃えると、箇条書き全体の読みやすさが上がります。","images/C6_平行文法_サンプル.png"]
+  ]},
+  {tag:"D", name:"構成・情報量", rules:[
+    ["1スライドには伝えたいことを1つだけ置く","最も効果の高いルールです。言いたいことが増えたら、スライドを分けてください。","images/D1_1スライド1メッセージ_サンプル.png"],
+    ["結論・要点はスライド下部にまとめる","視線の流れの終着点に結論を置くと、迷わず要点が伝わります。","images/D2_結論は下部に_サンプル.png"],
+    ["情報が多い時は「詳細は別紙」で本編をそぎ落とす","本編は要点だけに絞り、詳細情報は付録スライドに逃がすと読みやすくなります。","images/D3_詳細は別紙_サンプル.png"],
+    ["数字を使う時は必ず比較対象とセットで見せる","「30%増」だけでは伝わりません。「業界平均比」など、比較の基準を添えてください。","images/D4_数字は比較対象と_サンプル.png"],
+    ["矢印は意味のある向きにのみ使う","装飾目的の矢印は、逆に読み手を混乱させます。「原因→結果」など、論理の向きと一致させてください。","images/D5_矢印は意味のある向きに_サンプル.png"],
+    ["スライドの要素数は3〜6個の範囲に収める","要素が多すぎると、脳が処理しきれず「よくわからない」という印象だけが残ります。","images/D6_要素数3〜6個_サンプル.png"]
+  ]},
+  {tag:"E", name:"仕上げ・チェック", rules:[
+    ["提出前に「一言で言うと何のスライドか」を自分に問う","一言で言えないスライドは、まだ情報が整理しきれていないサインです。","images/E1_一言で言えるか自問_サンプル.png"],
+    ["遠目（縮小表示）で見ても要点が伝わるか確認する","近くで見ると気づかない詰め込みすぎも、縮小すると一目で分かります。","images/E2_遠目確認_サンプル.png"],
+    ["誤字脱字より先に「情報の過不足」をチェックする","誤字は後からでも直せますが、伝えるべき情報が抜けていると資料の意味自体が崩れます。","images/E3_情報の過不足チェック_サンプル.png"],
+    ["同じ資料内でロゴ・配色のブレがないか通し確認する","1枚ずつは正しくても、通しで見るとブレていることがよくあります。","images/E4_ロゴ配色ブレ通し確認_サンプル.png"],
+    ["白黒印刷しても情報が伝わるか確認する","重要度を色だけに依存させていないか、色を抜いた状態でも確認しておくと安心です。","images/E5_白黒印刷確認_サンプル.png"],
+    ["「これ、他人に見せて一発で伝わるか」を最後の基準にする","作り手にしか分からない資料になっていないか、他人の目線で最後に見直してください。","images/E6_他人目線で伝わるか_サンプル.png"]
+  ]}
+];
+const listEl=document.getElementById('list'),filtersEl=document.getElementById('filters'),countEl=document.getElementById('count'),searchEl=document.getElementById('search');
+let activeCat="ALL";
+function render(){
+  listEl.innerHTML="";
+  const q=searchEl.value.trim().toLowerCase();
+  let shown=0,total=0;
+  cats.forEach(c=>{
+    if(activeCat!=="ALL"&&activeCat!==c.tag)return;
+    const matched=c.rules.filter(r=>{total++;const hay=(r[0]+r[1]).toLowerCase();return !q||hay.includes(q);});
+    if(matched.length===0)return;
+    const h=document.createElement('div');h.className='cat';h.innerHTML=`<span class="tag">${c.tag}</span>${c.name}`;listEl.appendChild(h);
+    matched.forEach(r=>{
+      shown++;
+      const idx=cats.find(cc=>cc.tag===c.tag).rules.indexOf(r)+1;
+      const row=document.createElement('div');row.className='rule';
+      const img = r[2] ? `<img class="ruleImg" src="${r[2]}" alt="">` : '';
+      row.innerHTML=`${img}<div class="rtext"><div class="rt"><span class="n">${c.tag}${idx}</span>${r[0]}</div><div class="rd">${r[1]}</div></div>`;
+      listEl.appendChild(row);
+    });
+  });
+  countEl.textContent = q ? `「${q}」に一致：${shown}件` : `全${total}件を表示中`;
+}
+const allBtn=document.createElement('button');allBtn.textContent='すべて';allBtn.className='active';
+allBtn.addEventListener('click',()=>{activeCat="ALL";[...filtersEl.children].forEach(b=>b.classList.remove('active'));allBtn.classList.add('active');render();});
+filtersEl.appendChild(allBtn);
+cats.forEach(c=>{
+  const b=document.createElement('button');b.textContent=`${c.tag}: ${c.name}`;
+  b.addEventListener('click',()=>{activeCat=c.tag;[...filtersEl.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');render();});
+  filtersEl.appendChild(b);
+});
+searchEl.addEventListener('input',render);
+render();
+
+const masterPrompt = `あなたはプロのスライドデザイナーです。以下の条件をすべて満たす形で、スライド1枚をHTMLで作成してください。
+
+【スライドの内容】
+・テーマ：｛ここにスライドのテーマを入力（例：新商品の提案）｝
+・一言で言うと何のスライドか（結論）：｛ここに結論を一言で入力｝
+・想定読者：｛ここに読者層を入力（例：社内の決裁者）｝
+・使う場面：｛ここに使用シーンを入力（例：提案書の1枚目）｝
+
+【型（レイアウト）】
+以下の6種類から最も適した型を1つ選び、そのレイアウトに従ってください。
+1. 表紙型：属性帯（会社名・日付）→メインタイトル→サブテキストの3段構成
+2. 課題提起型（チェックリスト）：見出し＋チェックボックス付き箇条書き3〜5個。最後の1つだけアクセント色で強調
+3. ビフォーアフター比較型：左に「これまで」、中央に矢印、右に「これから」を左右対称に配置
+4. プロセス・ステップ型：同じ大きさの箱を横並びに3〜5個。最後のゴールだけアクセント色にする
+5. データ＋結論型：上部にグラフや数字を1つだけ大きく置き、下部の結論帯で言い切る
+6. まとめ型（結論帯）：要点を2〜3個並べたあと、最下部に紺背景の結論帯でキーワードをハイライト
+今回使う型：｛ここに1〜6の番号か型の名前を入力｝
+
+【配色ルール】
+・メインカラーは3〜5色までに絞る
+・60（背景）:30（サブカラー）:10（アクセント）の比率で配分する
+・アクセントカラーは「ここぞ」の1点だけに使う
+・文字と背景のコントラスト比はWCAG AA基準（4.5:1）以上にする
+・同系色でグラデーションを作り、安っぽさを防ぐ
+・業種のイメージ色を無視しない（業種：｛ここに業種を入力（例：医療、飲食、IT）｝）
+・メインカラー：｛ここにカラーコードを入力（例：#1a2233）｝、アクセントカラー：｛ここにカラーコードを入力（例：#e8772e）｝
+
+【余白・レイアウトルール】
+・要素と要素の間に「呼吸できる余白」を置く
+・余白を削って詰めるより、スライドを分ける
+・上下左右の余白幅は資料全体で統一する
+・見えない格子（グリッド）に要素を揃える
+・視線は「Z型」または「F型」に流れることを意識する
+・装飾のためだけの余白は作らない
+
+【文字・タイポグラフィルール】
+・見出しと本文でウェイトの差をはっきりつける
+・1スライドで使うフォントは2種類までにする
+・文字を無理に縦横に圧縮しない（扁平率90〜110%を保つ）
+・本文の文字サイズは18pt以上を目安にする（見出しは28pt前後）
+・箇条書きの先頭2〜3語を太字にする「太字リードイン」を使う
+・文頭表現を揃える「平行文法」でリズムを整える
+
+【構成・情報量ルール】
+・1スライドには伝えたいことを1つだけ置く
+・結論・要点はスライド下部にまとめる
+・情報が多い時は「詳細は別紙」で本編をそぎ落とす
+・数字を使う時は必ず比較対象とセットで見せる（例：業界平均比）
+・矢印は意味のある向き（原因→結果など）にのみ使う
+・スライドの要素数は3〜6個の範囲に収める
+
+【出力後の仕上げチェック】
+完成したら、以下の基準で自己チェックしてから出力してください。
+・一言で言うと何のスライドか、自分に問い直しても答えられるか
+・遠目（縮小表示）で見ても要点が伝わるか
+・誤字脱字より先に「情報の過不足」がないか
+・ロゴ・配色のブレがないか
+・白黒印刷しても情報が伝わるか
+・「他人に見せて一発で伝わるか」を最後の基準にしているか
+
+上記すべてを満たした、完成したスライド1枚分のHTMLコードのみを出力してください。`;
+
+function renderPromptBox(){
+  const escaped = masterPrompt
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/｛([^｝]*)｝/g,'<span class="fillin">｛$1｝</span>');
+  document.getElementById('promptBoxDisplay').innerHTML = escaped;
+}
+renderPromptBox();
+
+function copyMasterPrompt(){
+  const btn = document.getElementById('copyPromptBtn');
+  navigator.clipboard.writeText(masterPrompt).then(()=>{
+    const original = btn.textContent;
+    btn.textContent = '✅ コピーしました';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent=original;btn.classList.remove('copied');},2000);
+  }).catch(()=>{
+    btn.textContent = '⚠️ コピー失敗（手動で選択してください）';
+    setTimeout(()=>{btn.textContent='📋 プロンプトをコピー';},2500);
+  });
+}
+</script>
+</body>
+</html>

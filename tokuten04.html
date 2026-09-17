@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>意図通りに直らない時の壁打ちプロンプト集｜特典④</title>
+<style>
+  :root{--panel:#fff;--ink:#1a2233;--muted:#5b6275;--line:#e6e8f0;--teal:#2f7a8a;--teal-soft:#eaf3f4;--orange:#e8772e;--shadow:0 10px 40px rgba(20,24,60,.12)}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,Meiryo,system-ui,sans-serif;color:var(--ink);background:#fbf9f5;line-height:1.7;padding:32px 16px 90px}
+  .logo{position:fixed;top:14px;right:16px;z-index:50;height:28px;filter:drop-shadow(0 2px 6px rgba(26,34,51,.18))}
+  .wrap{max-width:860px;margin:0 auto}
+  .card{background:var(--panel);border-radius:20px;box-shadow:var(--shadow);padding:40px 32px}
+  .eyebrow{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--teal);font-weight:800;background:var(--teal-soft);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  h1{font-size:24px;line-height:1.4;margin:0 0 10px;font-weight:900}
+  .lead{color:var(--muted);font-size:14.5px;margin:0 0 6px}
+  .hr{height:1px;background:var(--line);margin:26px 0}
+  .cat{font-size:17px;font-weight:800;margin:30px 0 12px;display:flex;align-items:center;gap:10px}
+  .cat .tag{font-size:12px;font-weight:800;color:#fff;background:var(--teal);width:24px;height:24px;border-radius:8px;display:grid;place-items:center;flex:none}
+
+  .item{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0;background:#fff}
+  .ng{font-size:13px;color:#9a3b3b;background:#fbeaea;border-radius:8px;padding:8px 11px;margin-bottom:8px}
+  .ng b{margin-right:4px}
+  .why{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+  .promptBox{font-size:13.5px;background:#fdf7ee;border:1px solid #f0dbb8;border-radius:10px;padding:12px 14px;white-space:pre-wrap;line-height:1.65;color:var(--ink)}
+  .promptBox .plabel{display:block;font-size:11.5px;font-weight:800;color:var(--teal);margin-bottom:5px}
+  .copyBtn{margin-top:8px;border:1.5px solid var(--line);background:#fff;color:var(--muted);font-size:12px;font-weight:700;border-radius:8px;padding:6px 12px;cursor:pointer}
+  .copyBtn:hover{border-color:var(--orange);color:var(--orange)}
+  .copyBtn.done{background:var(--orange);border-color:var(--orange);color:#fff}
+
+  .closing{margin-top:26px;text-align:center;color:var(--muted);font-size:14px;border-top:1px dashed var(--line);padding-top:20px}
+  .madeby{margin-top:14px;text-align:center;font-size:12.5px;color:#9aa0b5}
+  @media(max-width:560px){.card{padding:26px 18px}h1{font-size:19px}}
+</style>
+</head>
+<body>
+<img class="logo" src="assets/なかしー_ロゴ_透過.png" alt="なかしー｜ゼロから始めるClaude Code伴走">
+<div class="wrap">
+  <div class="card">
+    <span class="eyebrow">特典④ なかしー｜ゼロから始めるClaude Code伴走</span>
+    <h1>意図通りに直らない時の壁打ちプロンプト集</h1>
+    <p class="lead">AIの出力が期待とズレたとき、<strong>「なんかいい感じにして」</strong>のような曖昧な言い直しでは、なかなか意図通りになりません。ここでは、色・余白・文字量・配置・トーンの5カテゴリ別に、そのまま使える言い直し例をまとめました。</p>
+
+    <div class="hr"></div>
+
+    <div class="cat"><span class="tag">A</span>色が思った通りにならない</div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「もっといい感じの色にして」</div>
+      <div class="why">AIには「いい感じ」の基準がありません。具体的な色や数値を渡さないと、毎回違う答えが返ってきます。</div>
+      <div class="promptBox" id="c1"><span class="plabel">言い直し例</span>背景を#fbf9f5系の温かみのあるオフホワイトに変更し、アクセントのオレンジ(#e8772e)は見出しの強調語1箇所だけに絞ってください。他の色は変更しないでください。</div>
+      <button class="copyBtn" data-target="c1">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「色がバラバラで統一感がない」</div>
+      <div class="why">「統一感を出して」だけでは、どの色を基準に揃えるかAIが判断できません。基準色を名指しする必要があります。</div>
+      <div class="promptBox" id="c2"><span class="plabel">言い直し例</span>すべての見出しの色を、ブランドガイドのプライマリカラー(#1a2233)に統一してください。強調に使っている色は、アクセントカラー(#e8772e)以外は使わないでください。</div>
+      <button class="copyBtn" data-target="c2">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「もう少し落ち着いた雰囲気の色に」</div>
+      <div class="why">「落ち着いた」は人によって解釈が異なる言葉です。彩度・明度のどちらを下げたいのかまで伝えると精度が上がります。</div>
+      <div class="promptBox" id="c3"><span class="plabel">言い直し例</span>使用している色の彩度を全体的に下げて、くすんだトーンにしてください。色相（色味の系統）は変えないでください。</div>
+      <button class="copyBtn" data-target="c3">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「もっと目立たせて」</div>
+      <div class="why">「目立たせる」ために色数が増えると、逆にどこが重要か伝わらなくなります。目立たせたい対象を1つに絞って伝えてください。</div>
+      <div class="promptBox" id="c4"><span class="plabel">言い直し例</span>色を増やすのではなく、この1箇所の文字だけをアクセントカラー(#e8772e)にして、他の要素の色はそのままにしてください。</div>
+      <button class="copyBtn" data-target="c4">コピーする</button>
+    </div>
+
+    <div class="cat"><span class="tag">B</span>余白・レイアウトが崩れる／詰まる</div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「余白を整えて」</div>
+      <div class="why">「整える」の基準がないと、AIはどこを基準に揃えればいいか分かりません。基準となる要素を指定してください。</div>
+      <div class="promptBox" id="c5"><span class="plabel">言い直し例</span>各要素の左端をそろえて配置してください。要素と要素の間の余白は、現在の1.5倍に広げてください。</div>
+      <button class="copyBtn" data-target="c5">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「詰まって見える」</div>
+      <div class="why">詰まって見える原因は「情報量」か「余白」のどちらかです。原因を切り分けて伝えると修正が早くなります。</div>
+      <div class="promptBox" id="c6"><span class="plabel">言い直し例</span>情報量はそのままで構わないので、要素間の余白を広げてください。それでも収まらない場合は、優先度の低い項目を1つ削ってください。</div>
+      <button class="copyBtn" data-target="c6">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「バランスが悪い」</div>
+      <div class="why">「バランス」は左右・上下・要素の大きさなど、複数の意味を含みます。何のバランスかを specify してください。</div>
+      <div class="promptBox" id="c7"><span class="plabel">言い直し例</span>左側の画像エリアと右側のテキストエリアの横幅の比率を、1:1ではなく4:6に変更してください。</div>
+      <button class="copyBtn" data-target="c7">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「もっとすっきりさせて」</div>
+      <div class="why">「すっきり」は情報の削除・余白の追加・装飾の削除のどれを指すか曖昧です。具体的な削減対象を挙げてください。</div>
+      <div class="promptBox" id="c8"><span class="plabel">言い直し例</span>装飾目的のアイコンや枠線を削除し、テキストと余白だけの構成にしてください。情報の中身は変えないでください。</div>
+      <button class="copyBtn" data-target="c8">コピーする</button>
+    </div>
+
+    <div class="cat"><span class="tag">C</span>文字量が多すぎる／少なすぎる</div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「文字を減らして」</div>
+      <div class="why">何を残すべきかを伝えないと、重要な情報まで削られてしまうことがあります。</div>
+      <div class="promptBox" id="c9"><span class="plabel">言い直し例</span>このスライドで一番伝えたいのは〇〇です。それ以外の情報を要約するか削って、全体の文字数を今の半分程度にしてください。</div>
+      <button class="copyBtn" data-target="c9">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「もっと詳しく書いて」</div>
+      <div class="why">スライドは詳細説明の場ではありません。詳しくしたい場合は「話す内容」と「書く内容」を分けて伝えてください。</div>
+      <div class="promptBox" id="c10"><span class="plabel">言い直し例</span>スライドに書く文字は要点だけのままにして、詳しい説明は「発表者ノート」に追記してください。</div>
+      <button class="copyBtn" data-target="c10">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「読みにくい」</div>
+      <div class="why">読みにくさの原因は、文字量・文の長さ・専門用語などさまざまです。原因を絞って伝えると修正が的確になります。</div>
+      <div class="promptBox" id="c11"><span class="plabel">言い直し例</span>1文が長い箇所を、体言止めか短い文に分割してください。専門用語には（　）で簡単な言い換えを添えてください。</div>
+      <button class="copyBtn" data-target="c11">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「もう少しボリュームが欲しい」</div>
+      <div class="why">情報を水増しすると、かえって要点がぼやけます。「増やす場所」を絞って依頼してください。</div>
+      <div class="promptBox" id="c12"><span class="plabel">言い直し例</span>文字数を増やすのではなく、根拠となる具体例やデータを1つ追加してください。</div>
+      <button class="copyBtn" data-target="c12">コピーする</button>
+    </div>
+
+    <div class="cat"><span class="tag">D</span>全体の配置・構成がしっくりこない</div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「なんか違う」</div>
+      <div class="why">これが一番よくある壁打ち失敗パターンです。「何が違うか」を言語化しないと、AIは同じ方向で微修正を繰り返すだけになります。</div>
+      <div class="promptBox" id="c13"><span class="plabel">言い直し例</span>結論を先に伝える構成に変えたいです。今は説明→結論の順ですが、結論→理由の順に入れ替えてください。</div>
+      <button class="copyBtn" data-target="c13">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「もっとプロっぽくして」</div>
+      <div class="why">「プロっぽさ」は抽象的です。具体的にどの要素を指すのか（余白・整列・色数など）に分解してください。</div>
+      <div class="promptBox" id="c14"><span class="plabel">言い直し例</span>要素の左端をグリッドに揃え、フォントの種類を2種類までに減らしてください。装飾用のイラストは削除してください。</div>
+      <button class="copyBtn" data-target="c14">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「一から作り直して」</div>
+      <div class="why">全部やり直すと、良かった部分まで失われます。残したい部分を先に伝えると効率的です。</div>
+      <div class="promptBox" id="c15"><span class="plabel">言い直し例</span>タイトルと配色はこのまま残してください。本文の構成だけを、プロセス・ステップ型のレイアウトに変更してください。</div>
+      <button class="copyBtn" data-target="c15">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「情報の順番がおかしい」</div>
+      <div class="why">おかしいと感じる基準（時系列・重要度・読み手の疑問順）を伝えると、正しい並び替えができます。</div>
+      <div class="promptBox" id="c16"><span class="plabel">言い直し例</span>情報の並びを、読み手が抱く疑問の順番（それは何？→なぜ必要？→どう使う？）に並び替えてください。</div>
+      <button class="copyBtn" data-target="c16">コピーする</button>
+    </div>
+
+    <div class="cat"><span class="tag">E</span>雰囲気・トーンが合わない</div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「もっとかっこよくして」</div>
+      <div class="why">「かっこいい」の定義は人それぞれです。参考にしたい既存の資料や、避けたい表現を伝えるほうが確実です。</div>
+      <div class="promptBox" id="c17"><span class="plabel">言い直し例</span>装飾は増やさず、余白を広めに取ったミニマルなトーンにしてください。丸みのある要素より、直線的な要素を優先してください。</div>
+      <button class="copyBtn" data-target="c17">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「もっと親しみやすく」</div>
+      <div class="why">親しみやすさは文体・色・アイコンの丸み等、複数の要素が絡みます。どの手段で親しみやすさを出すか指定してください。</div>
+      <div class="promptBox" id="c18"><span class="plabel">言い直し例</span>語尾を「です・ます」の丁寧語のまま、専門用語を減らして、話しかけるようなトーンの文章に変えてください。色や配置は変えないでください。</div>
+      <button class="copyBtn" data-target="c18">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「高級感を出して」</div>
+      <div class="why">高級感は「余白の広さ」「色数の少なさ」「金・紺などの色味」で出ることが多いです。要素として分解して伝えてください。</div>
+      <div class="promptBox" id="c19"><span class="plabel">言い直し例</span>色数を減らし、紺と金（またはゴールド系）の2色を基調に、余白を今より広く取ってください。</div>
+      <button class="copyBtn" data-target="c19">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな言い方：</b>「うちらしくない」</div>
+      <div class="why">「らしさ」はAIの中にはありません。ブランドガイドを参照させているか、まず確認してください。</div>
+      <div class="promptBox" id="c20"><span class="plabel">言い直し例</span>ブランドガイド.mdの配色・フォント方針を再度参照して、そこに書かれているルールから外れている箇所をすべて直してください。</div>
+      <button class="copyBtn" data-target="c20">コピーする</button>
+    </div>
+
+    <div class="closing">
+      共通するコツは1つ：「なんか違う」で止まらず、<b>どの要素の、何を、どう変えたいか</b>まで分解して伝えることです。
+    </div>
+    <div class="madeby">― この特典も、なかしーがClaudeCodeで作りました ―</div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.copyBtn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const box = document.getElementById(btn.dataset.target);
+      const text = box.innerText.replace(/^言い直し例\s*/,'');
+      navigator.clipboard.writeText(text).then(()=>{
+        btn.textContent = 'コピーしました';
+        btn.classList.add('done');
+        setTimeout(()=>{ btn.textContent='コピーする'; btn.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+</script>
+</body>
+</html>
