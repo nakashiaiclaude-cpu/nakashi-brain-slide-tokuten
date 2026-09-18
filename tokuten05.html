@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -15,6 +15,19 @@
   h1{font-size:24px;line-height:1.4;margin:0 0 10px;font-weight:900}
   .lead{color:var(--muted);font-size:14.5px;margin:0 0 6px}
   .hr{height:1px;background:var(--line);margin:26px 0}
+  h2.secH{font-size:19px;margin:0 0 6px;font-weight:800}
+  p.secSub{color:var(--muted);font-size:13.5px;margin:0 0 18px}
+
+  .tplCard{border:1px solid var(--line);border-radius:16px;padding:0;margin:14px 0;background:#fff;overflow:hidden}
+  .tplHead{display:flex;justify-content:space-between;align-items:center;background:var(--teal-soft);padding:12px 18px}
+  .tplHead .tt{font-size:14.5px;font-weight:800;color:var(--ink)}
+  .tplHead .tf{font-size:11.5px;color:var(--teal);font-weight:700}
+  .copyBtn{border:1.5px solid var(--teal);background:#fff;color:var(--teal);font-size:12px;font-weight:800;border-radius:8px;padding:6px 12px;cursor:pointer;flex:none}
+  .copyBtn:hover{background:var(--teal);color:#fff}
+  .copyBtn.copied{background:var(--orange);border-color:var(--orange);color:#fff}
+  .tplBody{padding:0}
+  .tplBody textarea{width:100%;min-height:220px;border:none;padding:16px 18px;font-family:"SF Mono",Consolas,Menlo,monospace;font-size:12.5px;line-height:1.75;color:var(--ink);resize:vertical;background:#fbf9f5}
+  .tplBody textarea:focus{outline:2px solid var(--teal)}
 
   .monthCard{border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:18px 0;background:#fff}
   .monthHead{display:flex;align-items:center;gap:12px;margin-bottom:6px}
@@ -23,65 +36,168 @@
   .monthSub{font-size:13px;color:var(--muted);margin:0 0 14px 46px}
   .field{margin:0 0 14px 46px}
   .field label{display:block;font-size:13px;font-weight:700;color:var(--teal);margin-bottom:6px}
+  .field .hint{display:block;font-size:11.5px;color:var(--muted);font-weight:400;margin-top:3px}
   .field textarea{width:100%;min-height:70px;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-family:inherit;font-size:13.5px;color:var(--ink);resize:vertical}
   .field textarea:focus{outline:2px solid var(--teal);border-color:var(--teal)}
-  .savedNote{font-size:11.5px;color:#7a5a16;margin:0 0 4px 46px}
 
   .toolbar{display:flex;justify-content:space-between;align-items:center;margin:8px 0 2px;flex-wrap:wrap;gap:8px}
   .saveState{font-size:12.5px;color:var(--muted)}
   .resetBtn{border:1.5px solid var(--line);background:#fff;color:var(--muted);font-size:12px;font-weight:700;border-radius:8px;padding:6px 12px;cursor:pointer}
   .resetBtn:hover{border-color:#c0504d;color:#c0504d}
 
+  .dlBar{margin-top:30px;text-align:center;background:var(--cream);border-radius:16px;padding:24px 20px}
+  .dlBar p{margin:0 0 14px;font-size:13.5px;color:var(--ink)}
+  .dlBtn{display:inline-block;background:var(--orange);color:#fff;font-weight:800;font-size:15px;border:none;border-radius:999px;padding:14px 32px;cursor:pointer;box-shadow:0 6px 16px rgba(232,119,46,.3)}
+  .dlBtn:hover{filter:brightness(1.05)}
+
   .closing{margin-top:26px;text-align:center;color:var(--muted);font-size:14px;border-top:1px dashed var(--line);padding-top:20px}
   .madeby{margin-top:14px;text-align:center;font-size:12.5px;color:#9aa0b5}
-  @media(max-width:560px){.card{padding:26px 18px}h1{font-size:19px}.monthSub,.field,.savedNote{margin-left:0}}
+  @media(max-width:560px){.card{padding:26px 18px}h1{font-size:19px}.monthSub,.field{margin-left:0}}
 </style>
 </head>
 <body>
-<img class="logo" src="assets/なかしー_ロゴ_透過.png" alt="なかしー｜ゼロから始めるClaude Code伴走">
+<img class="logo" src="assets/brand/なかしー_ロゴ_透過.png" alt="なかしー｜ゼロから始めるClaude Code伴走">
 <div class="wrap">
   <div class="card">
     <span class="eyebrow">特典⑤（レビュー特典） なかしー｜ゼロから始めるClaude Code伴走</span>
     <h1>読了後も自分で育てる資産化ワークシート</h1>
-    <p class="lead">教科書は読んで終わりではありません。第4章で作った<strong>ブランドガイド</strong>と第5〜6章の<strong>構成ルール・依頼文テンプレ</strong>を、あなたの実務に合わせて<strong>3ヶ月かけて育てる</strong>ための継続シートです。</p>
-    <p class="lead" style="font-size:13px">入力内容はこの端末のブラウザに自動保存されます（他の人とは共有されません）。定期的にスクリーンショットやコピーで控えを取っておくと安心です。</p>
+    <p class="lead">教科書は読んで終わりではありません。第4章の<strong>ブランドガイド</strong>、第5〜6章の<strong>構成ルール・依頼文テンプレ</strong>を、まず<strong>穴埋めですぐ使えるテンプレート</strong>として渡し、そのうえで<strong>3ヶ月かけて自分の実務に育てていく</strong>ための継続シートです。</p>
+    <p class="lead" style="font-size:13px">入力内容はこの端末のブラウザに自動保存されます。下部の「まとめてダウンロード」ボタンから、いつでもMarkdownファイルとして書き出せます。</p>
+
+    <div class="hr"></div>
+
+    <h2 class="secH">パートA：すぐ使えるスターターテンプレート3点</h2>
+    <p class="secSub">まずはこのテンプレートを丸ごとコピーして、あなたのフォルダに保存してください。〔　〕の部分だけ書き換えれば、そのままClaude Codeに読ませられます</p>
+
+    <div class="tplCard">
+      <div class="tplHead">
+        <div><div class="tt">① ブランドガイド.md（第4章対応）</div><div class="tf">config/brand_guide.md として保存</div></div>
+        <button class="copyBtn" data-target="tpl1">コピーする</button>
+      </div>
+      <div class="tplBody"><textarea id="tpl1" readonly># ブランドガイド
+
+## 配色（3〜5色）
+- プライマリ：〔色名〕 #〔HEXコード〕 → 用途：見出し・強調
+- アクセント：〔色名〕 #〔HEXコード〕 → 用途：キーフレーズの強調（全体の10%目安）
+- サブ：〔色名〕 #〔HEXコード〕 → 用途：カード見出し帯など（全体の30%目安）
+- 背景：〔色名〕 #〔HEXコード〕 → 用途：スライド全体の下地（全体の60%目安）
+- ニュートラル：〔色名〕 #〔HEXコード〕 → 用途：カード内背景・補足ボックス
+
+## フォント方針
+- 見出し：〔例：ウェイトを強め、サイズを一段大きく〕
+- 本文：〔例：サンセリフを維持、可読性優先〕
+
+## ロゴの配置ルール
+- 配置場所：〔例：右上固定〕
+- サイズ：〔例：本文の邪魔にならない高さ24〜32px相当〕
+- 使う画像ファイル：〔config/brand/logo.png のパスをここに書く〕
+
+## 避けたい表現
+- 〔例：過密なレイアウト〕
+- 〔例：装飾だけが目的の要素〕
+- 〔業種特有のNG表現があれば追記〕
+
+## 配色比率の目安
+60（背景）：30（サブ）：10（アクセント）
+</textarea></div>
+    </div>
+
+    <div class="tplCard">
+      <div class="tplHead">
+        <div><div class="tt">② 構成ルール.md（第5章対応）</div><div class="tf">config/構成ルール.md として保存</div></div>
+        <button class="copyBtn" data-target="tpl2">コピーする</button>
+      </div>
+      <div class="tplBody"><textarea id="tpl2" readonly># 構成ルール
+
+## 基本ルール
+- 1スライド1メッセージを徹底する
+- 箇条書きは「太字リードイン」（先頭2〜3語を太字）＋「平行文法」（文頭表現を揃える）
+- 結論・要点は下部に帯でまとめ、キーワードはアクセントカラー1色だけで強調する
+
+## 自分がよく作る資料のパターン
+- 〔例：営業提案が7割、毎回「課題→解決策→価格」の3部構成〕
+
+## そのパターン用の固定テンプレ（型）
+1. 〔例：表紙〕
+2. 〔例：課題提起〕
+3. 〔例：比較〕
+4. 〔例：プロセス〕
+5. 〔例：価格〕
+6. 〔例：まとめ〕
+
+## 例外ルール
+- 〔例：価格スライドだけは情報量を増やしてよい、など〕
+</textarea></div>
+    </div>
+
+    <div class="tplCard">
+      <div class="tplHead">
+        <div><div class="tt">③ 依頼文テンプレ.md（第6章対応）</div><div class="tf">config/依頼文テンプレ.md として保存</div></div>
+        <button class="copyBtn" data-target="tpl3">コピーする</button>
+      </div>
+      <div class="tplBody"><textarea id="tpl3" readonly># 依頼文テンプレ（5要素）
+
+【ゴール】
+〔〇〇向けに、〇〇の資料を作りたい。〇〇の場面で使う〕
+
+【参照素材】
+ブランドガイド（config/brand_guide.md）／過去資料〔ファイル名〕
+
+【出力形式】
+スライド〔〇枚〕、〔〇〇形式〕で
+
+【制約条件】
+色は〔ブランドガイド記載の配色〕のみ。詰め込みすぎない。〔毎回言っている注意点があれば追記〕
+
+【確認観点】
+1スライド1メッセージになっているか／結論が下部にあるか／〔業種特有のチェック項目があれば追記〕
+</textarea></div>
+    </div>
+
+    <div class="hr"></div>
+
+    <h2 class="secH">パートB：3ヶ月かけて育てる記録</h2>
+    <p class="secSub">上記3点を実際に使ってみて、気づいたことをここに書き足していってください。3ヶ月後、あなた専用の型に育ちます</p>
 
     <div class="toolbar">
       <span class="saveState" id="saveState">保存済み</span>
       <button class="resetBtn" id="resetBtn">この端末の入力内容をすべて消す</button>
     </div>
 
-    <div class="hr"></div>
-
     <div class="monthCard">
       <div class="monthHead"><div class="mn">1</div><div class="mt">1ヶ月目：ブランドガイドを実務に合わせて調整する</div></div>
-      <div class="monthSub">実際に資料を作ってみて、教科書通りにいかなかった点を書き出してください</div>
-      <div class="field"><label>使ってみて気づいた「色」のズレ</label><textarea data-key="m1-color" placeholder="例：紺だけだと業種的に硬すぎたので、サブカラーの使用比率を上げた"></textarea></div>
-      <div class="field"><label>使ってみて気づいた「フォント・文字量」の違和感</label><textarea data-key="m1-font" placeholder="例：見出しのウェイトが強すぎて、資料によっては圧が強く見えた"></textarea></div>
-      <div class="field"><label>ブランドガイド.md に追記したいルール</label><textarea data-key="m1-add" placeholder="例：業種特有のNG表現（同業他社のロゴ配色との類似回避）を追加"></textarea></div>
+      <div class="monthSub">実際に資料を作ってみて、テンプレ通りにいかなかった点を書き出してください</div>
+      <div class="field"><label>使ってみて気づいた「色」のズレ<span class="hint">例：紺だけだと業種的に硬すぎたので、サブカラーの使用比率を上げた</span></label><textarea data-key="m1-color"></textarea></div>
+      <div class="field"><label>使ってみて気づいた「フォント・文字量」の違和感<span class="hint">例：見出しのウェイトが強すぎて、資料によっては圧が強く見えた</span></label><textarea data-key="m1-font"></textarea></div>
+      <div class="field"><label>ブランドガイド.md に追記したいルール<span class="hint">例：業種特有のNG表現（同業他社のロゴ配色との類似回避）を追加</span></label><textarea data-key="m1-add"></textarea></div>
     </div>
 
     <div class="monthCard">
       <div class="monthHead"><div class="mn">2</div><div class="mt">2ヶ月目：構成ルールを自分の案件パターンに合わせる</div></div>
       <div class="monthSub">「1スライド1メッセージ」などの基本ルールを、自分がよく作る資料の型に落とし込みます</div>
-      <div class="field"><label>よく作る資料のパターン（営業／セミナー／SNS／ピッチのどれが多い？）</label><textarea data-key="m2-pattern" placeholder="例：営業提案が7割。毎回、課題→解決策→価格の3部構成になっている"></textarea></div>
-      <div class="field"><label>そのパターン用に固定してよさそうな「型」</label><textarea data-key="m2-template" placeholder="例：表紙→課題提起→比較→プロセス→価格→まとめ、の6枚構成をテンプレ化する"></textarea></div>
-      <div class="field"><label>構成ルール.md に追記したいこと</label><textarea data-key="m2-add" placeholder="例：価格スライドだけは例外的に情報量を増やしてよい、というルールを明記"></textarea></div>
+      <div class="field"><label>よく作る資料のパターン（営業／セミナー／SNS／ピッチのどれが多い？）</label><textarea data-key="m2-pattern"></textarea></div>
+      <div class="field"><label>そのパターン用に固定してよさそうな「型」</label><textarea data-key="m2-template"></textarea></div>
+      <div class="field"><label>構成ルール.md に追記したいこと</label><textarea data-key="m2-add"></textarea></div>
     </div>
 
     <div class="monthCard">
       <div class="monthHead"><div class="mn">3</div><div class="mt">3ヶ月目：依頼文テンプレを自分の「殺し文句」に育てる</div></div>
       <div class="monthSub">5要素のテンプレを、実際に何度も使ってみて磨かれた「自分の言葉」に更新します</div>
-      <div class="field"><label>毎回付け加えるようになった「制約条件」</label><textarea data-key="m3-constraint" placeholder="例：必ず『詰め込みすぎていないか』を確認観点に入れるようになった"></textarea></div>
-      <div class="field"><label>一番効果を感じた「言い直し方」（特典④の中から実際に使ったもの）</label><textarea data-key="m3-rephrase" placeholder="例：色の指定を『いい感じ』から『HEXコード＋使用比率』に変えたら精度が上がった"></textarea></div>
-      <div class="field"><label>依頼文テンプレ.md の最新版（自分用にアップデート）</label><textarea data-key="m3-final" placeholder="ここに、育った自分専用の依頼文テンプレをそのまま書き残しておいてください"></textarea></div>
+      <div class="field"><label>毎回付け加えるようになった「制約条件」</label><textarea data-key="m3-constraint"></textarea></div>
+      <div class="field"><label>一番効果を感じた「言い直し方」（特典④の中から実際に使ったもの）</label><textarea data-key="m3-rephrase"></textarea></div>
+      <div class="field"><label>依頼文テンプレ.md の最新版（自分用にアップデート）</label><textarea data-key="m3-final"></textarea></div>
     </div>
 
     <div class="monthCard">
       <div class="monthHead"><div class="mn">✓</div><div class="mt">3ヶ月後のふりかえり</div></div>
       <div class="monthSub">教材依存から抜けて、自分の仕組みとして定着したか確認してください</div>
-      <div class="field"><label>読み始めた頃と比べて、資料作成にかかる時間はどう変わったか</label><textarea data-key="final-time" placeholder="例：1セット半日→1時間程度に短縮された"></textarea></div>
-      <div class="field"><label>今後、さらに育てていきたい部分</label><textarea data-key="final-next" placeholder="例：4類型それぞれのテンプレを、もう少し細かく案件別に分けたい"></textarea></div>
+      <div class="field"><label>読み始めた頃と比べて、資料作成にかかる時間はどう変わったか</label><textarea data-key="final-time"></textarea></div>
+      <div class="field"><label>今後、さらに育てていきたい部分</label><textarea data-key="final-next"></textarea></div>
+    </div>
+
+    <div class="dlBar">
+      <p>スターターテンプレ3点＋ここまでの記入内容を、1つのMarkdownファイルにまとめて書き出せます</p>
+      <button class="dlBtn" id="dlBtn">📥 まとめてダウンロード（.md）</button>
     </div>
 
     <div class="closing">
@@ -94,7 +210,7 @@
 
 <script>
   const KEY_PREFIX = 'nakashi_brain_worksheet_';
-  const fields = document.querySelectorAll('textarea[data-key]');
+  const fields = document.querySelectorAll('.field textarea[data-key]');
   const saveState = document.getElementById('saveState');
 
   fields.forEach(f=>{
@@ -115,6 +231,86 @@
       f.value = '';
     });
     saveState.textContent = 'リセットしました';
+  });
+
+  document.querySelectorAll('.copyBtn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const ta = document.getElementById(btn.dataset.target);
+      const markCopied = ()=>{
+        btn.textContent = 'コピーしました';
+        btn.classList.add('copied');
+        setTimeout(()=>{ btn.textContent = 'コピーする'; btn.classList.remove('copied'); }, 1600);
+      };
+      ta.select();
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(ta.value).then(markCopied).catch(()=>{
+          document.execCommand('copy');
+          markCopied();
+        });
+      } else {
+        document.execCommand('copy');
+        markCopied();
+      }
+    });
+  });
+
+  document.getElementById('dlBtn').addEventListener('click', ()=>{
+    const getVal = (id) => document.getElementById(id).value;
+    const getField = (key) => {
+      const el = document.querySelector('[data-key="'+key+'"]');
+      return el && el.value.trim() ? el.value.trim() : '（未記入）';
+    };
+    const md = [
+      '# 資産化ワークシート（なかしー｜ゼロから始めるClaude Code伴走）',
+      '',
+      '## スターターテンプレート',
+      '',
+      '### ① ' + 'ブランドガイド.md',
+      '```',
+      getVal('tpl1'),
+      '```',
+      '',
+      '### ② 構成ルール.md',
+      '```',
+      getVal('tpl2'),
+      '```',
+      '',
+      '### ③ 依頼文テンプレ.md',
+      '```',
+      getVal('tpl3'),
+      '```',
+      '',
+      '## 3ヶ月の記録',
+      '',
+      '### 1ヶ月目：ブランドガイドの調整',
+      '- 色のズレ：' + getField('m1-color'),
+      '- フォント・文字量の違和感：' + getField('m1-font'),
+      '- 追記したいルール：' + getField('m1-add'),
+      '',
+      '### 2ヶ月目：構成ルールの調整',
+      '- よく作る資料のパターン：' + getField('m2-pattern'),
+      '- 固定してよさそうな型：' + getField('m2-template'),
+      '- 追記したいこと：' + getField('m2-add'),
+      '',
+      '### 3ヶ月目：依頼文テンプレの調整',
+      '- 毎回付け加える制約条件：' + getField('m3-constraint'),
+      '- 一番効果を感じた言い直し方：' + getField('m3-rephrase'),
+      '- 依頼文テンプレ最新版：' + getField('m3-final'),
+      '',
+      '### 3ヶ月後のふりかえり',
+      '- 資料作成にかかる時間の変化：' + getField('final-time'),
+      '- 今後さらに育てたい部分：' + getField('final-next'),
+      ''
+    ].join('\n');
+    const blob = new Blob([md], {type: 'text/markdown;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = '資産化ワークシート.md';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   });
 </script>
 </body>
