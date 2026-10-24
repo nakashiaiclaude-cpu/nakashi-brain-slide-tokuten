@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -39,7 +39,7 @@
   <div class="card">
     <span class="eyebrow">特典④ なかしー｜ゼロから始めるClaude Code伴走</span>
     <h1>意図通りに直らない時の壁打ちプロンプト集</h1>
-    <p class="lead">AIの出力が期待とズレたとき、<strong>「なんかいい感じにして」</strong>のような曖昧な言い直しでは、なかなか意図通りになりません。ここでは、色・余白・文字量・配置・トーンの5カテゴリ別に、そのまま使える言い直し例をまとめました。</p>
+    <p class="lead">AIの出力が期待とズレたとき、<strong>「なんかいい感じにして」</strong>のような曖昧な言い直しでは、なかなか意図通りになりません。色・余白・文字量・配置・トーンの5カテゴリ別に、そのまま使える言い直し例をまとめました。最後のFには、どれにも当てはまらないときの「直し依頼の型」と、何度直しても戻るときの抜け出し方を入れています。</p>
 
     <div class="hr"></div>
 
@@ -91,7 +91,7 @@
 
     <div class="item">
       <div class="ng"><b>ありがちな言い方：</b>「バランスが悪い」</div>
-      <div class="why">「バランス」は左右・上下・要素の大きさなど、複数の意味を含みます。何のバランスかを specify してください。</div>
+      <div class="why">「バランス」は左右・上下・要素の大きさなど、複数の意味を含みます。何のバランスを直したいのかを指定してください。</div>
       <div class="promptBox" id="c7"><span class="plabel">言い直し例</span>左側の画像エリアと右側のテキストエリアの横幅の比率を、1:1ではなく4:6に変更してください。</div>
       <button class="copyBtn" data-target="c7">コピーする</button>
     </div>
@@ -193,10 +193,36 @@
       <button class="copyBtn" data-target="c20">コピーする</button>
     </div>
 
-    <div class="closing">
-      共通するコツは1つ：「なんか違う」で止まらず、<b>どの要素の、何を、どう変えたいか</b>まで分解して伝えることです。
+    <div class="cat"><span class="tag">F</span>どれにも当てはまらない・何度直しても戻る</div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな状況：</b>A〜Eのどれに当たるのか自分でも分からない</div>
+      <div class="why">ズレの種類が分からないときは、下の4項目を埋めるだけで伝わる形になります。〔　〕を書き換えて使ってください。とくに「変えないもの」を書くと、直さなくていい場所まで崩れるのを防げます。</div>
+      <div class="promptBox" id="c21"><span class="plabel">直し依頼の型</span>【直したい場所】〔例：3枚目の右側の表〕
+【今の状態】〔例：文字が小さく、行が詰まって読みにくい〕
+【こうしたい】〔例：行数を半分にして、文字を1.3倍にする〕
+【変えないもの】〔例：配色・見出しの文言・他のスライド〕</div>
+      <button class="copyBtn" data-target="c21">コピーする</button>
     </div>
-    <div class="madeby">― この特典も、なかしーがClaudeCodeで作りました ―</div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな状況：</b>3回以上直しても、前の状態に戻ったり別の場所が崩れたりする</div>
+      <div class="why">やり取りが長くなると、AIは古い指示と新しい指示を混ぜてしまいます。ここまでの決定事項をいったんまとめさせ、それだけを前提に作り直させると抜け出せます。</div>
+      <div class="promptBox" id="c22"><span class="plabel">言い直し例</span>いったん修正を止めてください。ここまでのやり取りで決まったこと（残す部分・変えた部分・使う色）を箇条書きでまとめてください。私が確認したら、そのまとめだけを前提に、該当スライドを1から作り直してください。</div>
+      <button class="copyBtn" data-target="c22">コピーする</button>
+    </div>
+
+    <div class="item">
+      <div class="ng"><b>ありがちな状況：</b>うまく直った言い方を、次の資料で思い出せない</div>
+      <div class="why">効いた言い方は、その場で依頼文テンプレに足しておくと次から1回で通ります。特典⑤のワークシートにも書き残せます。</div>
+      <div class="promptBox" id="c23"><span class="plabel">言い直し例</span>今回の修正で効いた指示を、次回から最初に伝えられるように1〜3行の「制約条件」としてまとめてください。依頼文テンプレ.mdの【制約条件】に追記できる形で出してください。</div>
+      <button class="copyBtn" data-target="c23">コピーする</button>
+    </div>
+
+    <div class="closing">
+      「なんか違う」と感じたら、<b>どの要素の何をどう変えたいか</b>まで分けて伝えてください。
+    </div>
+    <div class="madeby">― この特典も、なかしーがClaude Codeで作りました ―</div>
   </div>
 </div>
 
@@ -204,7 +230,7 @@
   document.querySelectorAll('.copyBtn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const box = document.getElementById(btn.dataset.target);
-      const text = box.innerText.replace(/^言い直し例\s*/,'');
+      const text = box.innerText.replace(/^(言い直し例|直し依頼の型)\s*/,'');
       navigator.clipboard.writeText(text).then(()=>{
         btn.textContent = 'コピーしました';
         btn.classList.add('done');

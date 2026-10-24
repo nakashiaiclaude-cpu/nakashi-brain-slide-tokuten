@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -56,7 +56,16 @@
   .downloadBox p strong{color:var(--ink)}
   .downloadBtn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-size:13.5px;font-weight:800;border-radius:10px;padding:11px 18px;text-decoration:none}
   .downloadBtn:hover{background:var(--orange)}
-  .downloadNote{margin-top:10px;font-size:12px;color:var(--muted)}
+  .downloadNote{margin-top:12px;font-size:12px;color:var(--muted)}
+  .downloadNote a{color:var(--teal)}
+  .kitList{margin:0 0 16px;padding-left:20px;font-size:13.5px;color:var(--muted)}
+  .kitList li{margin-bottom:5px}
+  .kitList b{color:var(--ink)}
+  .installSteps{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .installSteps .isTitle{font-size:13.5px;font-weight:800;color:var(--navy);margin-bottom:6px}
+  .installSteps ol{margin:0;padding-left:20px;font-size:13.5px;color:var(--ink)}
+  .installSteps li{margin-bottom:4px}
+  code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:var(--teal-soft);color:#204a53;padding:1px 6px;border-radius:5px;word-break:break-all}
   @media(max-width:560px){.card{padding:26px 18px}h1{font-size:20px}}
 </style>
 </head>
@@ -68,7 +77,7 @@
 <div class="card">
   <span class="eyebrow">特典① なかしー｜ゼロから始めるClaude Code伴走</span>
   <h1>ゼロから作るスライド作成Skills</h1>
-  <p class="lead">白紙のフォルダを前にしたとき、<strong>迷わず手が動く</strong>ようになるための、実際の作成手順です。後半には、営業・セミナー・SNS・ピッチの4つの場面別に、そのままコピペして使える指示文の実例を収録しました。</p>
+  <p class="lead">白紙のフォルダを前にしても<strong>迷わず手が動く</strong>ように、実際の作成手順をまとめました。後半には営業・セミナー・SNS・ピッチの4場面別に、そのままコピペで使える指示文の実例と、Skills一式のダウンロードを収録しています。</p>
 
   <div class="hr"></div>
 
@@ -139,7 +148,7 @@
 スライド8〜10枚、PDF形式で
 
 【制約条件】
-色は紺・オレンジのみ。1枚に詰め込みすぎない。価格は最後の1枚にまとめる
+色はブランドガイドの配色のみ。1枚に詰め込みすぎない。価格は最後の1枚にまとめる
 
 【確認観点】
 課題→解決策→提供内容→価格の流れになっているか／結論を先に示す構成が崩れていないか</div>
@@ -212,16 +221,31 @@
 
   <div class="downloadBox">
     <div class="dtitle"><span class="dicon">DL</span>slide-mode-kit（実際に運用しているスライドSkills一式）</div>
-    <p>パートA・Bで説明した仕組みを、<strong>私が実際の資料作成で使っているSkillsフォルダそのまま</strong>パッケージにしました。7種類の「見た目のテイスト（モード）」定義・各モードの確認用サンプルスライド・編集可能PPTXを書き出すPythonスクリプトまで、フォルダごとお渡しします。中身を書き換えれば、そのままあなた自身のブランドで使えます。</p>
-    <a class="downloadBtn" href="https://github.com/nakashiaiclaude-cpu/nakashi-slide-mode-kit" target="_blank" rel="noopener">GitHubリポジトリを開く ↗</a>
-    <div class="downloadNote">Privateリポジトリのため、閲覧には招待が必要です。アクセスできない場合は購入時のご案内に沿ってご連絡ください。導入手順はリポジトリ内の README.md にまとめています。</div>
+    <p>パートA・Bで説明した仕組みを、<strong>私が実際の資料作成で使っているSkillsフォルダそのまま</strong>パッケージにしました。中身は次のとおりです。</p>
+    <ul class="kitList">
+      <li><b>見た目のテイスト（モード）15種類</b>：配色・書体・部品の描き方をモードごとに定義したファイル</li>
+      <li><b>確認用サンプルスライド</b>：15モードすべての見本（選ぶ前に見た目を確認できます）</li>
+      <li><b>過去資料チェック</b>：フォルダ内にあなたのテンプレや過去資料があれば、それに近いモードから提案します</li>
+      <li><b>画像生成の選択</b>：写真や手描き風の質感が要るモードは、ChatGPTとNotebookLMのどちらで作るかを選べます</li>
+      <li><b>編集できるPPTXの書き出し</b>：PowerPointで直せる形で出力するPythonスクリプト（参照実装）</li>
+    </ul>
+    <a class="downloadBtn" href="https://github.com/nakashiaiclaude-cpu/nakashi-slide-mode-kit/archive/refs/heads/main.zip" rel="noopener">ZIPでダウンロード ↓</a>
+    <div class="installSteps">
+      <div class="isTitle">導入は3ステップ</div>
+      <ol>
+        <li>ダウンロードしたZIPを展開する（フォルダ名は <code>nakashi-slide-mode-kit-main</code>）</li>
+        <li>中身を、資料作成用フォルダの <code>.claude/skills/slide-mode-kit/</code> に置く（<code>.claude</code> フォルダがなければ作る）</li>
+        <li>Claude Codeを開き、「モード一覧見せて」と送る。15種類の一覧が返ってくれば導入完了</li>
+      </ol>
+    </div>
+    <div class="downloadNote">ファイルの中身をブラウザで見たい方は<a href="https://github.com/nakashiaiclaude-cpu/nakashi-slide-mode-kit" target="_blank" rel="noopener">GitHubのページ</a>からも確認できます（登録やログインは不要です）。詳しい使い方はフォルダ内の README.md にまとめています。導入で止まったときは、購入者限定LINEからご相談ください。</div>
   </div>
 
   <div class="closing">
-    型はここまでです。あとは、あなたの案件の数字と言葉に置き換えるだけ。<br>
-    続きは本編・特典②〜④と合わせて使ってください。
+    〇〇の部分を、あなたの案件の数字と言葉に置き換えて使ってください。<br>
+    デザインの細かいルールは特典②、直したいときの言い方は特典④にまとめています。
   </div>
-  <div class="madeby">― この特典も、なかしーがClaudeCodeで作りました ―</div>
+  <div class="madeby">― この特典も、なかしーがClaude Codeで作りました ―</div>
 </div>
 </div>
 

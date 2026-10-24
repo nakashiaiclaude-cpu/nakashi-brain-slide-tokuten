@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -91,7 +91,7 @@
 <img class="logo" src="assets/なかしー_ロゴ_透過.png" alt="なかしー｜ゼロから始めるClaude Code伴走">
 <div class="wrap">
   <div class="card">
-    <div class="toolbar"><button class="pdfBtn" onclick="window.print()">🖨 PDFとして保存</button></div>
+    <div class="toolbar"><button class="pdfBtn" onclick="window.print()">PDFとして保存</button></div>
     <span class="eyebrow">特典② なかしー｜ゼロから始めるClaude Code伴走</span>
     <h1>スライドデザインルール集30選＋テンプレート集</h1>
     <p class="lead">配色・余白・文字量などの実践ルール30個と、色の数・扁平率など<strong>「知っておくべき一般常識」</strong>の早見表、型（テンプレート）6種をまとめました。印刷して手元に置いておきたい方は、右上のボタンからPDF保存できます。</p>
@@ -216,31 +216,31 @@
     <h2 class="secH">パートC：デザインルール30選</h2>
     <p class="secSub">作業に詰まったとき、検索して該当箇所だけ確認してください</p>
 
-    <div class="searchBox"><span>🔍</span><input id="search" type="text" placeholder="キーワードで検索（例：余白、コントラスト、文字量）"></div>
+    <div class="searchBox"><input id="search" type="text" placeholder="キーワードで検索（例：余白、コントラスト、文字量）"></div>
     <div class="count" id="count"></div>
     <div class="catFilters" id="filters"></div>
     <div id="list"></div>
 
     <div class="hr"></div>
 
-    <h2 class="secH">🎯 全部乗せ・完全プロンプト</h2>
+    <h2 class="secH">全部乗せ・完全プロンプト</h2>
     <p class="secSub">パートA〜Cの内容をすべて盛り込んだ、スライド1枚をAIに作らせるための完成プロンプトです</p>
 
     <div class="promptSection">
       <div class="promptNote">
-        <div class="noteLabel">⚠️ ここは説明文です（プロンプトの一部ではありません）</div>
-        <p>下のグレーの箱の中身だけが、ClaudeCodeやChatGPTにそのまま貼り付けるプロンプト本文です。この説明文（オレンジ点線の枠内）はコピーされません。</p>
+        <div class="noteLabel">ここは説明文です（プロンプトの一部ではありません）</div>
+        <p>下のグレーの箱の中身だけが、Claude CodeやChatGPTにそのまま貼り付けるプロンプト本文です。この説明文（オレンジ点線の枠内）はコピーされません。</p>
         <p>プロンプト内で <span class="fillinDemo">｛　　　｝</span> のように囲まれている部分が、あなた自身の内容に書き換える必要がある箇所です。コピーしたあと、｛　｝ごと具体的な内容に置き換えてから使ってください（｛　｝の記号ごと消してOKです）。</p>
       </div>
 
-      <div class="copyBar"><button class="copyBtn" id="copyPromptBtn" onclick="copyMasterPrompt()">📋 プロンプトをコピー</button></div>
+      <div class="copyBar"><button class="copyBtn" id="copyPromptBtn" onclick="copyMasterPrompt()">プロンプトをコピー</button></div>
       <div class="promptBoxWrap">
         <div class="promptBox" id="promptBoxDisplay"></div>
       </div>
     </div>
 
-    <div class="closing">迷ったら、この30個のどれかに当てはめて確認してください。<br>ルールは覚えるものではなく、辞書のように「引く」ものです。</div>
-    <div class="madeby">― この特典も、なかしーがClaudeCodeで作りました ―</div>
+    <div class="closing">迷ったら、この30個のどれかに当てはめて確認してください。<br>ルールは覚えなくて大丈夫です。辞書のように、必要なときに検索して使ってください。</div>
+    <div class="madeby">― この特典も、なかしーがClaude Codeで作りました ―</div>
   </div>
 </div>
 
@@ -394,12 +394,12 @@ function copyMasterPrompt(){
   const btn = document.getElementById('copyPromptBtn');
   navigator.clipboard.writeText(masterPrompt).then(()=>{
     const original = btn.textContent;
-    btn.textContent = '✅ コピーしました';
+    btn.textContent = 'コピーしました';
     btn.classList.add('copied');
     setTimeout(()=>{btn.textContent=original;btn.classList.remove('copied');},2000);
   }).catch(()=>{
-    btn.textContent = '⚠️ コピー失敗（手動で選択してください）';
-    setTimeout(()=>{btn.textContent='📋 プロンプトをコピー';},2500);
+    btn.textContent = 'コピーできませんでした（手動で選択してください）';
+    setTimeout(()=>{btn.textContent='プロンプトをコピー';},2500);
   });
 }
 </script>
