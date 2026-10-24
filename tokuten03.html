@@ -7,7 +7,7 @@
 <style>
   :root{--panel:#fff;--ink:#1a2233;--navy:#1a2233;--muted:#5b6275;--line:#e6e8f0;--teal:#2f7a8a;--teal-soft:#eaf3f4;--orange:#e8772e;--cream:#fdf0d9;--shadow:0 10px 40px rgba(20,24,60,.12)}
   *{box-sizing:border-box}
-  body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,Meiryo,system-ui,sans-serif;color:var(--ink);background:#fbf9f5;line-height:1.7;padding:32px 16px 90px}
+  body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,Meiryo,system-ui,sans-serif;color:var(--ink);background:#fbf9f5;line-height:1.75;padding:32px 16px 90px}
   .logo{position:fixed;top:14px;right:16px;z-index:50;height:28px;filter:drop-shadow(0 2px 6px rgba(26,34,51,.18))}
   .wrap{max-width:840px;margin:0 auto}
   .card{background:var(--panel);border-radius:20px;box-shadow:var(--shadow);padding:40px 32px}
@@ -15,7 +15,7 @@
   h1{font-size:23px;line-height:1.4;margin:0 0 10px;font-weight:900}
   .lead{color:var(--muted);font-size:14.5px;margin:0 0 6px}
   .lead strong{color:var(--ink)}
-  .toc{margin:18px 0 0;padding:14px 18px;background:var(--teal-soft);border-radius:12px;font-size:13.5px}
+  .toc{margin:18px 0 0;padding:14px 18px;background:var(--teal-soft);border-radius:12px;font-size:14px}
   .toc a{color:#204a53;text-decoration:none;font-weight:700}
   .toc a:hover{text-decoration:underline}
   .toc ol{margin:0;padding-left:20px}
@@ -23,20 +23,30 @@
   h2.secH{font-size:19px;margin:0 0 6px;font-weight:800;scroll-margin-top:20px}
   p.secSub{color:var(--muted);font-size:13.5px;margin:0 0 18px}
 
-  .qa{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0;background:#fff}
-  .qa .step{font-size:11.5px;font-weight:800;color:#fff;background:var(--teal);display:inline-block;border-radius:999px;padding:3px 11px;margin-bottom:8px}
-  .qa .step.kit{background:var(--orange)}
-  .qa .q{font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:8px}
-  .qa .q::before{content:"Q. ";color:var(--orange)}
-  .qa .a{font-size:13.5px;color:var(--muted);line-height:1.75}
-  .qa .a::before{content:"A. ";color:var(--teal);font-weight:800}
-  .qa .a b{color:var(--ink)}
-  .qa ul{margin:6px 0 0;padding-left:20px}
-  .qa li{margin-bottom:3px}
-  .say{display:block;margin-top:8px;background:#fdf7ee;border:1px solid #f0dbb8;border-radius:8px;padding:8px 12px;color:var(--ink);font-size:13px}
-  code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:var(--teal-soft);color:#204a53;padding:1px 6px;border-radius:5px;word-break:break-all}
+  .words{display:grid;grid-template-columns:1fr;gap:8px}
+  .word{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:#fff;font-size:13.5px;color:var(--muted)}
+  .word b{display:block;font-size:14.5px;color:var(--ink);margin-bottom:2px}
 
-  .tree{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:#f6f7fa;border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:pre;overflow-x:auto;color:var(--ink);margin-top:8px;line-height:1.6}
+  details.qa{border:1px solid var(--line);border-radius:14px;margin:10px 0;background:#fff}
+  details.qa[open]{border-color:#bfdcdf}
+  details.qa summary{cursor:pointer;list-style:none;padding:15px 18px;font-size:14.5px;font-weight:800;color:var(--ink);display:flex;gap:10px;align-items:flex-start}
+  details.qa summary::-webkit-details-marker{display:none}
+  details.qa summary::before{content:"Q";flex:none;width:24px;height:24px;border-radius:7px;background:var(--orange);color:#fff;font-size:13px;display:grid;place-items:center;margin-top:1px}
+  details.qa summary::after{content:"＋";margin-left:auto;color:var(--teal);font-weight:800}
+  details.qa[open] summary::after{content:"－"}
+  details.qa .tag{flex:none;font-size:11px;font-weight:800;color:var(--teal);background:var(--teal-soft);border-radius:999px;padding:2px 9px;margin-top:2px}
+  .ans{padding:0 18px 16px 52px;font-size:14px;color:var(--ink)}
+  .ans ol{margin:4px 0 6px;padding-left:20px}
+  .ans li{margin-bottom:5px}
+  .ans .note{font-size:12.5px;color:var(--muted);margin-top:6px}
+  .msgBox{font-size:13.5px;background:#fdf7ee;border:1px solid #f0dbb8;border-radius:10px;padding:10px 13px;white-space:pre-wrap;line-height:1.7;color:var(--ink);margin:6px 0 0}
+  .copyBtn{margin-top:7px;border:1.5px solid var(--line);background:#fff;color:var(--muted);font-size:12px;font-weight:700;border-radius:8px;padding:6px 12px;cursor:pointer}
+  .copyBtn:hover{border-color:var(--orange);color:var(--orange)}
+  .copyBtn.done{background:var(--orange);border-color:var(--orange);color:#fff}
+  kbd{font-family:inherit;font-size:12px;background:#fff;border:1px solid #cfd3dd;border-bottom-width:2px;border-radius:5px;padding:0 6px}
+  code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:var(--teal-soft);color:#204a53;padding:1px 6px;border-radius:5px;word-break:break-all}
+  .tree{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:#f6f7fa;border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:pre;overflow-x:auto;color:var(--ink);margin-top:6px;line-height:1.6}
+  .groupH{font-size:14px;font-weight:800;color:var(--teal);margin:22px 0 4px}
 
   .chat{display:flex;flex-direction:column;gap:12px}
   .bubble{border-radius:14px;padding:12px 16px;font-size:13.5px;line-height:1.75;max-width:92%}
@@ -56,7 +66,7 @@
 
   .closing{margin-top:28px;text-align:center;color:var(--muted);font-size:14px;border-top:1px dashed var(--line);padding-top:20px}
   .madeby{margin-top:14px;text-align:center;font-size:12.5px;color:#9aa0b5}
-  @media(max-width:560px){.card{padding:26px 18px}h1{font-size:18px}.bubble{max-width:100%}}
+  @media(max-width:560px){.card{padding:26px 18px}h1{font-size:18px}.bubble{max-width:100%}.ans{padding-left:18px}}
 </style>
 </head>
 <body>
@@ -65,166 +75,249 @@
   <div class="card">
     <span class="eyebrow">特典③ なかしー｜ゼロから始めるClaude Code伴走</span>
     <h1>Skillsの使い方ガイド（補足）</h1>
-    <p class="lead">特典①の<strong>Skills一式（slide-mode-kit）</strong>と<strong>8ステップ手順</strong>を、実際に手を動かしたときに止まりやすい場所の順に解説します。導入で動かないとき、モードに迷ったとき、出てきた資料を直したいときに開いてください。</p>
+    <p class="lead">特典①の手順で<strong>止まってしまったとき</strong>に開くページです。困っていることに近い質問を押すと、答えが開きます。答えの多くは、Claude Codeに送る文章とセットになっているので、コピーして送るだけで解決できます。</p>
 
     <div class="toc">
       <ol>
-        <li><a href="#partA">Skillsの導入でつまずいたとき（5問）</a></li>
+        <li><a href="#words">まず知っておきたい言葉（6つ）</a></li>
+        <li><a href="#partA">止まったときのQ&amp;A（12問）</a></li>
         <li><a href="#partB">最初の1枚ができるまでのやり取り例</a></li>
-        <li><a href="#partC">8ステップのつまずきQ&amp;A（6問）</a></li>
-        <li><a href="#partD">指示文テンプレを自分用に育てる4つの型</a></li>
+        <li><a href="#partC">依頼文を自分用に育てる4つのコツ</a></li>
       </ol>
     </div>
 
     <div class="hr"></div>
 
-    <h2 class="secH" id="partA">パートA：Skillsの導入でつまずいたとき</h2>
-    <p class="secSub">特典①のZIPを展開してから、最初の資料ができるまでに出やすい質問です</p>
+    <h2 class="secH" id="words">まず知っておきたい言葉</h2>
+    <p class="secSub">特典①に出てくる言葉の意味です。分かっている言葉は飛ばしてください</p>
+    <div class="words">
+      <div class="word"><b>フォルダ</b>ファイルをまとめて入れておく入れ物です。特典①では、デスクトップに「スライド用」という名前のフォルダを作ります。</div>
+      <div class="word"><b>ダウンロードフォルダ</b>インターネットから保存したファイルが、自動で入る場所です。Windowsはエクスプローラー、MacはFinderの左側の一覧に「ダウンロード」があります。</div>
+      <div class="word"><b>ZIP（ジップ）ファイル</b>たくさんのファイルを1つにまとめて小さくしたファイルです。そのままでは使えないので、元の形に戻す（展開する）必要がありますが、特典①ではClaude Codeに頼んで展開してもらいます。</div>
+      <div class="word"><b>コピーと貼り付け</b>コピーは文章を覚えさせる操作、貼り付けは覚えた文章を入れる操作です。このページの「コピーする」ボタンを押したあと、Claude Codeの入力欄で Windowsは <kbd>Ctrl</kbd>＋<kbd>V</kbd>、Macは <kbd>command</kbd>＋<kbd>V</kbd> を押すと貼り付けられます。</div>
+      <div class="word"><b>入力欄</b>Claude Codeの画面の下にある、文字を打ち込む欄です。ここに頼みたいことを書いて <kbd>Enter</kbd> を押すと、Claude Codeが作業を始めます。</div>
+      <div class="word"><b>.md や .html で終わるファイル</b>.md は文章のメモ、.html はブラウザで見るページのファイルです。Claude Codeが作ってくれるので、中身を自分で書く必要はありません。</div>
+    </div>
 
-    <div class="qa">
-      <div class="step kit">導入</div>
-      <div class="q">「モード一覧見せて」と送っても、15種類の一覧が出てきません</div>
-      <div class="a">ほとんどの場合、フォルダの置き場所が原因です。次の3点を順に確認してください。
-        <ul>
-          <li><b>SKILL.mdの位置</b>：資料作成フォルダの中に、下の形で入っているか。ZIPを展開すると同じ名前のフォルダが二重になることがあり、その場合は1段上に出します</li>
-          <li><b>開いているフォルダ</b>：Claude Codeで、この資料作成フォルダを開いた状態で話しかけているか</li>
-          <li><b>会話の始め直し</b>：Skillsは会話の開始時に読み込まれます。置いたあとは新しい会話を始めてから送ってください</li>
-        </ul>
-        <div class="tree">資料作成フォルダ/
+    <div class="hr"></div>
+
+    <h2 class="secH" id="partA">止まったときのQ&amp;A</h2>
+    <p class="secSub">質問を押すと答えが開きます。右側の番号は、特典①の手順番号です</p>
+
+    <div class="groupH">最初の準備（特典①パートA）で止まったとき</div>
+
+    <details class="qa">
+      <summary>「Select folder」を押したあと、どれを選べばいいか分かりません<span class="tag">A-2</span></summary>
+      <div class="ans">
+        <ol>
+          <li>開いた画面の左側にある一覧から<b>「デスクトップ」</b>を押す</li>
+          <li>右側に出てくる中から<b>「スライド用」</b>を1回クリックして選ぶ</li>
+          <li>右下の「開く」や「選択」のボタンを押す</li>
+        </ol>
+        <div class="note">「スライド用」が見つからないときは、特典①のA-1でフォルダを作ったか確認してください。</div>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>貼り付けができません<span class="tag">A-4</span></summary>
+      <div class="ans">
+        <ol>
+          <li>「コピーする」ボタンを押して、「コピーしました」に変わったか確認する</li>
+          <li>Claude Codeの入力欄を、マウスで1回クリックする</li>
+          <li>Windowsは <kbd>Ctrl</kbd>＋<kbd>V</kbd>、Macは <kbd>command</kbd>＋<kbd>V</kbd> を押す</li>
+        </ol>
+        <div class="note">キーの操作が苦手な方は、入力欄で右クリックして「貼り付け」を選んでも同じです。</div>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>許可を求める表示が何度も出てきます。押していいのか不安です<span class="tag">A-4〜A-8</span></summary>
+      <div class="ans">
+        特典①の文章で頼んだ作業（ファイルの展開・移動・保存）についての許可なら、許可するボタン（「Yes」「Allow」など）を押して大丈夫です。<br>
+        頼んだ覚えのない作業（ファイルを消す、インターネットに送る、など）の許可が出たときは、いったん断るボタンを押して、次の文を送ってください。
+        <div class="msgBox" id="q3">いま何をしようとしていましたか。やさしい言葉で教えてください。</div>
+        <button class="copyBtn" data-target="q3">コピーする</button>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>「モード一覧見せて」と送っても、15種類の一覧が出てきません<span class="tag">A-5</span></summary>
+      <div class="ans">
+        上から順に試してください。1つ試すたびに「モード一覧見せて」を送り直します。
+        <ol>
+          <li>Claudeのアプリを閉じて開き直し、「Code」→「Local」→「Select folder」で、もう一度「スライド用」を選ぶ</li>
+          <li>次の文をコピーして送り、置き場所を直してもらう。終わったら1.をもう一度行う</li>
+        </ol>
+        <div class="msgBox" id="q4">このフォルダの中から slide-mode-kit の SKILL.md を探してください。.claude/skills/slide-mode-kit/SKILL.md の位置になっていなければ、その位置に来るようにフォルダを移動してください。終わったら、SKILL.md がいまどこにあるか教えてください。</div>
+        <button class="copyBtn" data-target="q4">コピーする</button>
+        <div class="note">それでも出ない場合は、特典①のA-3とA-4をもう一度最初からやり直してください。</div>
+        <div class="tree">（参考）正しく入ったときのフォルダの形
+スライド用/
 ├── .claude/
 │   └── skills/
 │       └── slide-mode-kit/
-│           ├── SKILL.md      ← ここにあればOK
-│           ├── index.yaml
+│           ├── SKILL.md   ← ここにあればOK
 │           ├── modes/
 │           └── confirm/
-└── config/                   ← 自分のブランド設定（任意）
-    ├── brand_guide.md
-    └── brand/
-        └── logo.png</div>
+├── config/
+│   ├── brand_guide.md
+│   └── brand/logo.png
+└── 過去資料/</div>
       </div>
-    </div>
+    </details>
 
-    <div class="qa">
-      <div class="step kit">モード選び</div>
-      <div class="q">15種類もあって、どのモードを選べばいいか分かりません</div>
-      <div class="a">自分で選ばず、用途を伝えておすすめを聞くのが早いです。Skillsは推奨を必ず1つ挙げて理由を添えるように作ってあります。
-        <span class="say">来週の商談で使う、新サービスの提案資料を作りたいです。相手は中小企業の社長です。おすすめのモードを1つ選んで、理由も教えてください。</span>
-        見た目を自分の目で確かめたいときは、<code>slide-mode-kit/confirm/</code> の中のファイルを開きます。HTMLはダブルクリックでブラウザに表示され、PNGはそのまま画像として見られます。</div>
-    </div>
+    <details class="qa">
+      <summary>入力の途中で Enter を押して、送ってしまいました<span class="tag">全体</span></summary>
+      <div class="ans">
+        大丈夫です。Claude Codeが作業を始めていたら、次の文を送ってください。
+        <div class="msgBox" id="q5">さっきのは途中で送ってしまったものです。いったん作業を止めて、次に送る内容でやり直してください。</div>
+        <button class="copyBtn" data-target="q5">コピーする</button>
+        <div class="note">続けて、正しい文章を送ります。改行したいときは <kbd>Shift</kbd>＋<kbd>Enter</kbd> を押すと、送らずに改行できます。</div>
+      </div>
+    </details>
 
-    <div class="qa">
-      <div class="step kit">ブランド</div>
-      <div class="q">自分のロゴと色で作りたいです</div>
-      <div class="a">資料作成フォルダの直下に <code>config/brand_guide.md</code> と <code>config/brand/logo.png</code> を置きます。ブランドガイドの中身は、特典⑤のスターターテンプレをそのまま使えます。置いてあれば、配色とロゴ配置はモードよりブランドガイドが優先されます。<br>
-        <b>ロゴはAIに描かせないでください。</b>生成させるとスライドごとに違うマークができてしまうため、必ず実際の画像ファイルを置きます。</div>
-    </div>
+    <details class="qa">
+      <summary>ブランドガイドの質問に、どう答えればいいか分かりません<span class="tag">A-7</span></summary>
+      <div class="ans">
+        きれいに答えようとしなくて大丈夫です。例えば次のような答え方で十分伝わります。
+        <ol>
+          <li>色：「名刺がこげ茶とベージュなので、それに合わせたい」「青っぽくて落ち着いた感じ」</li>
+          <li>文字の雰囲気：「読みやすければ何でもいい」「やわらかい感じ」</li>
+          <li>避けたい表現：「派手すぎるもの」「特になし」</li>
+        </ol>
+        <div class="note">どうしても決められない質問は「おすすめで」と答えてください。あとから「ブランドガイドの色を〇〇に変えて」と頼めば直せます。</div>
+      </div>
+    </details>
 
-    <div class="qa">
-      <div class="step kit">書き出し</div>
-      <div class="q">できあがった資料を、PDFやパワポにしたいです</div>
-      <div class="a"><b>PDFにする</b>：できあがったHTMLをブラウザで開き、印刷メニューから「PDFとして保存」を選びます。<br>
-        <b>パワポ（編集できるPPTX）にする</b>：「この資料を編集できるPPTXでも出してください」と頼みます。同梱の書き出しスクリプトは <code>dynamic_tech_glow</code> モード用の見本なので、他のモードではClaude Codeがスクリプトを書き換えながら作ることになり、少し時間がかかります。Pythonの準備が必要な場合も、Claude Codeが手順を案内します。</div>
-    </div>
+    <div class="groupH">資料を作るとき（特典①パートB）に止まったとき</div>
 
-    <div class="qa">
-      <div class="step kit">画像生成</div>
-      <div class="q">「ChatGPTとNotebookLMのどちらで作りますか」と聞かれました</div>
-      <div class="a">写真や手描き風の質感が必要なモード（<code>wafu_illustrated</code>・<code>dark_gold_luxury</code>）を選んだときに出る質問です。コードでは質感が出しにくいため、画像生成AIに任せます。普段使っている方を選んでください。<br>
-        どちらもClaude Codeがブラウザを操作して作るため、Claude in Chrome（ブラウザ操作の拡張機能）と、ChatGPTまたはNotebookLMへのログインが必要です。ログインはご自身で済ませておいてください。</div>
-    </div>
+    <details class="qa">
+      <summary>どのテイスト（モード）を選べばいいか分かりません<span class="tag">B-3</span></summary>
+      <div class="ans">
+        自分で選ばず、おすすめを聞くのが確実です。次の文の〇〇を書き換えて送ってください。
+        <div class="msgBox" id="q7">〇〇（例：来週の商談）で使う資料です。見せる相手は〇〇（例：取引先の社長）です。おすすめのモードを1つ選んで、理由も教えてください。</div>
+        <button class="copyBtn" data-target="q7">コピーする</button>
+        <div class="note">見た目を先に見てから決めたいときは、「モードの見本を、ブラウザで順番に開いてください」と送ってください。</div>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>できたファイルがどこにあるか分かりません<span class="tag">B-4</span></summary>
+      <div class="ans">
+        次の文を送ると、場所を教えてくれて、そのまま開いてくれます。
+        <div class="msgBox" id="q8">いま作ったスライドのファイルがどこにあるか教えてください。そのあと、ブラウザで開いてください。</div>
+        <button class="copyBtn" data-target="q8">コピーする</button>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>PDFやパワポにする方法が分かりません<span class="tag">B-6</span></summary>
+      <div class="ans">
+        <b>PDFにする</b>：特典①のB-6の手順で、ブラウザの印刷画面から「PDFに保存」を選びます。<br>
+        <b>パワポ（あとから文字を直せる形）にする</b>：次の文を送ります。
+        <div class="msgBox" id="q9">この資料を、PowerPointで編集できるPPTXファイルでも作ってください。準備が必要なものがあれば、1つずつ順番に案内してください。</div>
+        <button class="copyBtn" data-target="q9">コピーする</button>
+        <div class="note">パワポの書き出しは、モードによっては時間がかかります。急ぐときはPDFを使ってください。</div>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>「ChatGPTとNotebookLMのどちらで作りますか」と聞かれました<span class="tag">B-3</span></summary>
+      <div class="ans">
+        写真や手描き風の雰囲気が必要なモード（和風イラスト・黒×金の高級感）を選んだときに出る質問です。この2つは、画像を作るAIに任せて作ります。<br>
+        どちらもClaude Codeがブラウザを操作して作るので、ブラウザ操作の拡張機能（Claude in Chrome）と、ChatGPTかNotebookLMへのログインが必要です。準備が難しいと感じたら、次の文を送って別のモードにしてください。
+        <div class="msgBox" id="q10">画像を作るAIを使わずに作れるモードに変えてください。今のモードに一番近い雰囲気のものでお願いします。</div>
+        <button class="copyBtn" data-target="q10">コピーする</button>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>ロゴや色を、あとから変えたいです<span class="tag">A-6・A-7</span></summary>
+      <div class="ans">
+        新しいロゴ画像を「スライド用」フォルダにドラッグしてから、次の文の〇〇を書き換えて送ります。
+        <div class="msgBox" id="q11">ブランドガイドを直したいです。〇〇（例：アクセントの色をオレンジから緑に）変えてください。新しいロゴ画像をフォルダに入れたので、config/brand/logo.png と差し替えてください。</div>
+        <button class="copyBtn" data-target="q11">コピーする</button>
+        <div class="note">ロゴを変えない場合は、2文目を消してから送ってください。</div>
+      </div>
+    </details>
+
+    <details class="qa">
+      <summary>Claude Codeの返事が長かったり、言葉が難しかったりして読めません<span class="tag">全体</span></summary>
+      <div class="ans">
+        遠慮なく言い直してもらって大丈夫です。
+        <div class="msgBox" id="q12">いまの返事を、パソコンに詳しくない人向けに、やさしい言葉で3行にまとめてください。私が次にやることがあれば、それも1つだけ教えてください。</div>
+        <button class="copyBtn" data-target="q12">コピーする</button>
+      </div>
+    </details>
 
     <div class="hr"></div>
 
-    <h2 class="secH" id="partB">パートB：最初の1枚ができるまでのやり取り例</h2>
-    <p class="secSub">営業提案資料を作る場合の、実際の流れに近い例です。8ステップのSTEP6〜8にあたります</p>
+    <h2 class="secH" id="partB">最初の1枚ができるまでのやり取り例</h2>
+    <p class="secSub">営業の提案資料を作る場合の流れです。特典①のB-2〜B-7にあたります</p>
 
     <div class="chat">
-      <div class="bubble you"><span class="who">あなた</span>来週の商談で使う、新サービス導入の提案資料を8枚で作りたいです。<code>config/brand_guide.md</code> と、去年の提案資料（提案_2025.pdf）を参考にしてください。
-        <span class="memo">STEP6：目的・相手・参考資料の3つだけを伝える</span></div>
-      <div class="bubble ai"><span class="who">Claude Code</span>過去の提案資料を確認しました。青を基調にした落ち着いた構成なので、近いのは <code>corporate_blue_standard</code> です。このテイストで続けますか、それとも新しいテイストにしますか。続ける場合は、表紙・課題・解決策・導入の流れ・事例・料金・スケジュール・まとめの8枚で構成します。
-        <span class="memo">フォルダ内の過去資料を先に確認してから、モードを提案してきます</span></div>
-      <div class="bubble you"><span class="who">あなた</span>そのテイストで進めてください。事例と料金の順番は入れ替えてください。</div>
-      <div class="bubble ai"><span class="who">Claude Code</span>8枚をHTMLで作成しました。ブラウザで開いて確認してください。</div>
-      <div class="bubble you"><span class="who">あなた</span>【直したい場所】5枚目の比較表<br>【今の状態】文字が小さく、行が詰まって読みにくい<br>【こうしたい】行を3つに減らして、文字を大きくする<br>【変えないもの】配色と他のスライド
-        <span class="memo">STEP7：特典④の「直し依頼の型」で、ズレを分けて伝える</span></div>
-      <div class="bubble ai"><span class="who">Claude Code</span>5枚目だけを修正しました。表は3行にまとめ、文字サイズを上げています。</div>
-      <div class="bubble you"><span class="who">あなた</span>この8枚の構成を、営業提案用のテンプレとして保存してください。次からはこのテンプレを使って作ってほしいです。
-        <span class="memo">STEP8：同じ構成を2回以上使いそうなら、ここで保存する</span></div>
+      <div class="bubble you"><span class="who">あなた</span>【ゴール】A社様向けに、新サービス導入のご提案資料を作りたい。初回の商談で使う。【参照素材】ブランドガイド／過去資料フォルダの提案資料……
+        <span class="memo">B-2：特典①パートCの依頼文をコピーして、〇〇を書き換えて送る</span></div>
+      <div class="bubble ai"><span class="who">Claude Code</span>過去資料フォルダの提案資料を確認しました。青を中心にした落ち着いた雰囲気なので、近いのは「corporate_blue_standard」というモードです。このテイストで進めますか。それとも新しいテイストにしますか。
+        <span class="memo">フォルダの中の過去資料を見てから、モードを提案してきます</span></div>
+      <div class="bubble you"><span class="who">あなた</span>そのテイストでお願いします。
+        <span class="memo">B-3：質問に答える。迷ったら「おすすめで」</span></div>
+      <div class="bubble ai"><span class="who">Claude Code</span>8枚のスライドを作成しました。</div>
+      <div class="bubble you"><span class="who">あなた</span>いま作ったスライドを、ブラウザで開いてください。
+        <span class="memo">B-4：できた資料を見る</span></div>
+      <div class="bubble you"><span class="who">あなた</span>【直したい場所】5枚目の表【今の状態】文字が小さくて読みにくい【こうしたい】行を3つに減らして文字を大きくする【変えないもの】色と、ほかのスライド
+        <span class="memo">B-5：特典④の「直し依頼の型」で伝える</span></div>
+      <div class="bubble ai"><span class="who">Claude Code</span>5枚目だけを直しました。表を3行にまとめ、文字を大きくしています。</div>
+      <div class="bubble you"><span class="who">あなた</span>今回の構成とデザインを、営業提案用の型として保存してください。
+        <span class="memo">B-7：次も使えるように保存する</span></div>
     </div>
-    <p class="chatNote">※ やり取りの一例です。Claude Codeの返答の文面は毎回変わります。</p>
+    <p class="chatNote">※ やり取りの一例です。Claude Codeの返事の文面は毎回少しずつ変わります。</p>
 
     <div class="hr"></div>
 
-    <h2 class="secH" id="partC">パートC：8ステップのつまずきQ&amp;A</h2>
-    <p class="secSub">特典①の8ステップ手順で、各ステップで止まりやすい場所です</p>
-
-    <div class="qa">
-      <div class="step">STEP 2〜3：素材収集・ブランドガイド</div>
-      <div class="q">過去資料が1つもない場合はどうすればいい？</div>
-      <div class="a">素材はゼロから始めて構いません。ブランドガイドの6項目（プライマリ・アクセント・背景・フォント方針・ロゴ配置・避けたい表現）だけ先に決め、資料を作りながら過去資料を増やしていく順番で進められます。</div>
-    </div>
-
-    <div class="qa">
-      <div class="step">STEP 4：構成ルール</div>
-      <div class="q">「1スライド1メッセージ」を守ると、スライド枚数が増えすぎませんか？</div>
-      <div class="a">増えて構いません。枚数より、1枚あたりの分かりやすさを優先してください。発表時間が限られる場合は、話さないスライドを「付録」として後ろに回します。</div>
-    </div>
-
-    <div class="qa">
-      <div class="step">STEP 5：依頼文テンプレ</div>
-      <div class="q">5要素すべてを毎回書くのが面倒に感じます</div>
-      <div class="a">丁寧に書くのは最初の数回で足ります。慣れてきたら「ゴール」「参照素材」「出力形式」は定型文をコピペで使い回し、「制約条件」と「確認観点」だけを案件ごとに書き換えると負担が減ります。</div>
-    </div>
-
-    <div class="qa">
-      <div class="step">STEP 6：最初の依頼</div>
-      <div class="q">3つだけ伝えるのでは、情報不足で見当違いな案が出てきませんか？</div>
-      <div class="a">出ることもあります。最初の1案はたたき台と割り切り、STEP7の対話で寄せていく前提で進めてください。1回で完成させようとすると情報を詰め込みすぎて、指示がかえって複雑になります。</div>
-    </div>
-
-    <div class="qa">
-      <div class="step">STEP 7：修正・対話</div>
-      <div class="q">何度直しても意図通りにならない時は？</div>
-      <div class="a">特典④の言い直し例を使い、ズレを色・余白・文字量・配置・トーンのどれかに分けて伝えます。何度直しても前の状態に戻る場合は、特典④のFにある「決まったことをまとめさせてから作り直す」言い方を使ってください。</div>
-    </div>
-
-    <div class="qa">
-      <div class="step">STEP 8：テンプレ化</div>
-      <div class="q">どのタイミングで「テンプレ」として保存すべき？</div>
-      <div class="a">同じ構成のスライドを2回以上作った時点が目安です。1回しか使わない特殊な資料までテンプレにすると、使い道のないテンプレが増えてしまいます。</div>
-    </div>
-
-    <div class="hr"></div>
-
-    <h2 class="secH" id="partD">パートD：指示文テンプレを自分用に育てる4つの型</h2>
-    <p class="secSub">特典①の4つの指示文実例は、案件に合わせて少しずつ書き足すほど精度が上がります</p>
+    <h2 class="secH" id="partC">依頼文を自分用に育てる4つのコツ</h2>
+    <p class="secSub">何回か資料を作って慣れてきたら読んでください。最初は飛ばして大丈夫です</p>
 
     <div class="comboGrid">
       <div class="combo">
-        <div class="ct">① 前提を変える</div>
-        <div class="cd"><b>【ゴール】</b>の一文を、毎回の案件内容に置き換えます。誰に・何のために・どの場面で使うかまで具体的に書くほど、出てくる案のズレが小さくなります。</div>
+        <div class="ct">① 【ゴール】を具体的に書く</div>
+        <div class="cd">誰に・何のために・どの場面で使うかまで書くほど、1回目から近い案が出てきます。例：「提案資料を作りたい」より「A社の社長に、来週の商談で見せる提案資料を作りたい」。</div>
       </div>
       <div class="combo">
-        <div class="ct">② 制約条件を積み増す</div>
-        <div class="cd">同じ類型を繰り返し使う中で「毎回言っている注意点」に気づいたら、<b>【制約条件】</b>に1行ずつ追記します。半年ほど続けると、あなた専用のテンプレになります。</div>
+        <div class="ct">② 毎回言っている注意を【制約条件】に足す</div>
+        <div class="cd">直すたびに同じことを言っていると気づいたら、その一言を<b>【制約条件】</b>に足します。「依頼文テンプレの【制約条件】に、次の一文を足して」と頼めば、Claude Codeが書き足してくれます。</div>
       </div>
       <div class="combo">
-        <div class="ct">③ 確認観点を業種に合わせる</div>
-        <div class="cd">汎用の確認観点（結論が先にあるか等）に、業種特有のチェック項目を足します。例えば医療なら「誇大な効能表現になっていないか」、士業なら「断定的な判断を書いていないか」です。</div>
+        <div class="ct">③ 仕事に合わせた確認を【確認観点】に足す</div>
+        <div class="cd">仕事の種類ごとに、気をつけたいことを足します。例えば医療や美容なら「効果を言いすぎていないか」、士業なら「言い切ってはいけない内容を断定していないか」です。</div>
       </div>
       <div class="combo">
-        <div class="ct">④ 類型をまたいで組み合わせる</div>
-        <div class="cd">「営業提案＋ピッチ」のように、複数の類型の要素を1つの依頼文に混ぜても構いません。4つの実例は、組み替えて使える部品として扱ってください。</div>
+        <div class="ct">④ 2つの依頼文を組み合わせる</div>
+        <div class="cd">「営業の提案に、事業説明の数字も入れたい」といったときは、2つの依頼文の中身を混ぜて1つにして構いません。</div>
       </div>
     </div>
 
     <div class="closing">
-      使い方に迷ったら、このページに戻ってきてください。<br>
-      育てたテンプレは、特典⑤のワークシートに書き残しておくと次の資料作りで使えます。
+      ここにない困りごとは、購入者限定LINEに「特典①のA-4で止まっています」のように、手順の番号を添えて送ってください。<br>
+      うまくいった依頼文は、特典⑤のワークシートに書き残しておくと次から楽になります。
     </div>
     <div class="madeby">― この特典も、なかしーがClaude Codeで作りました ―</div>
   </div>
 </div>
+
+<script>
+  function fallback(text){
+    const ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta);
+  }
+  document.querySelectorAll('.copyBtn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const text=document.getElementById(btn.dataset.target).innerText;
+      const done=()=>{ btn.textContent='コピーしました'; btn.classList.add('done'); setTimeout(()=>{ btn.textContent='コピーする'; btn.classList.remove('done'); },1800); };
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done).catch(()=>{ fallback(text); done(); }); }
+      else { fallback(text); done(); }
+    });
+  });
+</script>
 </body>
 </html>

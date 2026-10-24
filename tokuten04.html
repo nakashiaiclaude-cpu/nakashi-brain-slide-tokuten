@@ -28,6 +28,11 @@
   .copyBtn:hover{border-color:var(--orange);color:var(--orange)}
   .copyBtn.done{background:var(--orange);border-color:var(--orange);color:#fff}
 
+  .howto{margin-top:18px;background:var(--teal-soft);border-radius:12px;padding:14px 18px;font-size:14px}
+  .howto .hTitle{font-weight:800;color:var(--teal);margin-bottom:4px}
+  .howto ol{margin:0;padding-left:20px}
+  .howto li{margin-bottom:4px}
+  .howto .hNote{font-size:12.5px;color:#204a53;margin-top:6px}
   .closing{margin-top:26px;text-align:center;color:var(--muted);font-size:14px;border-top:1px dashed var(--line);padding-top:20px}
   .madeby{margin-top:14px;text-align:center;font-size:12.5px;color:#9aa0b5}
   @media(max-width:560px){.card{padding:26px 18px}h1{font-size:19px}}
@@ -41,6 +46,16 @@
     <h1>意図通りに直らない時の壁打ちプロンプト集</h1>
     <p class="lead">AIの出力が期待とズレたとき、<strong>「なんかいい感じにして」</strong>のような曖昧な言い直しでは、なかなか意図通りになりません。色・余白・文字量・配置・トーンの5カテゴリ別に、そのまま使える言い直し例をまとめました。最後のFには、どれにも当てはまらないときの「直し依頼の型」と、何度直しても戻るときの抜け出し方を入れています。</p>
 
+    <div class="howto">
+      <div class="hTitle">使い方</div>
+      <ol>
+        <li>A〜Fの見出しから、いま困っていることに近いものを探す</li>
+        <li>「ありがちな言い方」が自分の気持ちに近いものを選び、「コピーする」を押す</li>
+        <li>Claude Codeの入力欄に貼り付ける。〇〇があれば自分の内容に書き換えてから送る</li>
+      </ol>
+      <div class="hNote">どこを直したいのかを先に書くと、より伝わります。例：「3枚目の表について。」と1行目に書いてから貼り付ける。</div>
+    </div>
+
     <div class="hr"></div>
 
     <div class="cat"><span class="tag">A</span>色が思った通りにならない</div>
@@ -48,14 +63,14 @@
     <div class="item">
       <div class="ng"><b>ありがちな言い方：</b>「もっといい感じの色にして」</div>
       <div class="why">AIには「いい感じ」の基準がありません。具体的な色や数値を渡さないと、毎回違う答えが返ってきます。</div>
-      <div class="promptBox" id="c1"><span class="plabel">言い直し例</span>背景を#fbf9f5系の温かみのあるオフホワイトに変更し、アクセントのオレンジ(#e8772e)は見出しの強調語1箇所だけに絞ってください。他の色は変更しないでください。</div>
+      <div class="promptBox" id="c1"><span class="plabel">言い直し例</span>背景を、ブランドガイドに書いてある背景色に変更してください。アクセントカラーは、見出しの強調したい言葉1か所だけに使ってください。他の色は変更しないでください。</div>
       <button class="copyBtn" data-target="c1">コピーする</button>
     </div>
 
     <div class="item">
       <div class="ng"><b>ありがちな言い方：</b>「色がバラバラで統一感がない」</div>
       <div class="why">「統一感を出して」だけでは、どの色を基準に揃えるかAIが判断できません。基準色を名指しする必要があります。</div>
-      <div class="promptBox" id="c2"><span class="plabel">言い直し例</span>すべての見出しの色を、ブランドガイドのプライマリカラー(#1a2233)に統一してください。強調に使っている色は、アクセントカラー(#e8772e)以外は使わないでください。</div>
+      <div class="promptBox" id="c2"><span class="plabel">言い直し例</span>すべての見出しの色を、ブランドガイドのメインカラーにそろえてください。強調にはブランドガイドのアクセントカラーだけを使い、それ以外の色は使わないでください。</div>
       <button class="copyBtn" data-target="c2">コピーする</button>
     </div>
 
@@ -69,7 +84,7 @@
     <div class="item">
       <div class="ng"><b>ありがちな言い方：</b>「もっと目立たせて」</div>
       <div class="why">「目立たせる」ために色数が増えると、逆にどこが重要か伝わらなくなります。目立たせたい対象を1つに絞って伝えてください。</div>
-      <div class="promptBox" id="c4"><span class="plabel">言い直し例</span>色を増やすのではなく、この1箇所の文字だけをアクセントカラー(#e8772e)にして、他の要素の色はそのままにしてください。</div>
+      <div class="promptBox" id="c4"><span class="plabel">言い直し例</span>〇〇（目立たせたい言葉）の文字だけを、ブランドガイドのアクセントカラーにしてください。色は増やさず、他の部分の色はそのままにしてください。</div>
       <button class="copyBtn" data-target="c4">コピーする</button>
     </div>
 
@@ -231,11 +246,18 @@
     btn.addEventListener('click', ()=>{
       const box = document.getElementById(btn.dataset.target);
       const text = box.innerText.replace(/^(言い直し例|直し依頼の型)\s*/,'');
-      navigator.clipboard.writeText(text).then(()=>{
+      const done = ()=>{
         btn.textContent = 'コピーしました';
         btn.classList.add('done');
         setTimeout(()=>{ btn.textContent='コピーする'; btn.classList.remove('done'); }, 1800);
-      });
+      };
+      const fallback = ()=>{
+        const ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta);
+        done();
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done).catch(fallback); }
+      else { fallback(); }
     });
   });
 </script>

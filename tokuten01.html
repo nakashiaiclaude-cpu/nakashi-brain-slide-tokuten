@@ -67,6 +67,43 @@
   .installSteps li{margin-bottom:4px}
   code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:var(--teal-soft);color:#204a53;padding:1px 6px;border-radius:5px;word-break:break-all}
   @media(max-width:560px){.card{padding:26px 18px}h1{font-size:20px}}
+  .guideNote{margin:16px 0 0;background:#fff8f1;border:1px solid #f3d3b3;border-radius:12px;padding:14px 16px;font-size:13.5px;color:var(--ink)}
+  .guideNote b{color:var(--orange)}
+  .progress{position:sticky;top:10px;z-index:20;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;margin:18px 0 6px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 14px rgba(20,24,60,.06)}
+  .progress .bar{flex:1;height:8px;background:var(--line);border-radius:999px;overflow:hidden}
+  .progress .fill{height:100%;width:0;background:var(--teal);transition:width .3s}
+  .progress .ptext{font-size:12.5px;font-weight:800;color:var(--teal);white-space:nowrap}
+  .pre{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff}
+  .pre label{display:flex;gap:10px;align-items:flex-start;font-size:14px;margin:6px 0;cursor:pointer}
+  .pre .preNg{margin-top:10px;font-size:12.5px;color:var(--muted)}
+  .gstep{border:1px solid var(--line);border-radius:16px;padding:18px 20px 16px;margin:14px 0;background:#fff;transition:background .2s,border-color .2s}
+  .gstep.done{background:#f3f9f9;border-color:#bfdcdf}
+  .gstep .gHead{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .gstep .gNum{flex:none;min-width:46px;height:30px;padding:0 10px;border-radius:9px;background:var(--teal);color:#fff;font-weight:800;font-size:13.5px;display:grid;place-items:center}
+  .gstep.done .gNum{background:var(--orange)}
+  .gstep h3{margin:0;font-size:16px;flex:1}
+  .gstep .time{font-size:11.5px;color:var(--muted);white-space:nowrap}
+  .gstep p{font-size:14px;margin:0 0 8px;color:var(--ink)}
+  .gstep ol.do{margin:0 0 8px;padding-left:22px;font-size:14px}
+  .gstep ol.do li{margin-bottom:5px}
+  .os{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;font-size:13.5px;margin:4px 0 10px;align-items:start}
+  .os .tag{font-size:11px;font-weight:800;color:#fff;border-radius:6px;padding:2px 8px;white-space:nowrap;margin-top:2px}
+  .os .win{background:#3b6fb6}
+  .os .mac{background:#555b66}
+  .msgBox{font-size:13.5px;background:#fdf7ee;border:1px solid #f0dbb8;border-radius:10px;padding:12px 14px;white-space:pre-wrap;line-height:1.7;color:var(--ink);margin:6px 0 0}
+  .okBox{margin-top:10px;font-size:13px;background:var(--teal-soft);border-radius:8px;padding:9px 12px;color:#204a53}
+  .okBox::before{content:"できたらこうなります　";font-weight:800;color:var(--teal)}
+  .ngBox{margin-top:8px;font-size:12.5px;background:#f6f7fa;border-radius:8px;padding:9px 12px;color:var(--muted)}
+  .ngBox::before{content:"うまくいかないとき　";font-weight:800;color:#9a3b3b}
+  .tipBox{margin-top:8px;font-size:12.5px;color:#7a5a16;background:#fdf0d9;border-radius:8px;padding:8px 12px}
+  .checkRow{display:flex;justify-content:flex-end;margin-top:12px}
+  .checkRow label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:var(--teal);cursor:pointer;border:1.5px solid var(--teal);border-radius:999px;padding:6px 14px;background:#fff}
+  .gstep.done .checkRow label{background:var(--orange);border-color:var(--orange);color:#fff}
+  .checkRow input{width:16px;height:16px;accent-color:var(--orange)}
+  kbd{font-family:inherit;font-size:12px;background:#fff;border:1px solid #cfd3dd;border-bottom-width:2px;border-radius:5px;padding:0 6px}
+  .dlInline{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-size:14px;font-weight:800;border-radius:10px;padding:11px 18px;text-decoration:none;margin:4px 0 2px}
+  .dlInline:hover{background:var(--orange)}
+  .partIntro{font-size:13.5px;color:var(--muted);margin:-8px 0 14px}
 </style>
 </head>
 <body>
@@ -77,189 +114,327 @@
 <div class="card">
   <span class="eyebrow">特典① なかしー｜ゼロから始めるClaude Code伴走</span>
   <h1>ゼロから作るスライド作成Skills</h1>
-  <p class="lead">白紙のフォルダを前にしても<strong>迷わず手が動く</strong>ように、実際の作成手順をまとめました。後半には営業・セミナー・SNS・ピッチの4場面別に、そのままコピペで使える指示文の実例と、Skills一式のダウンロードを収録しています。</p>
+  <p class="lead">パソコン操作に自信がなくても、上から順に1つずつ進めれば、<strong>自分のブランドでスライドを作れる状態</strong>になります。フォルダやファイルの細かい操作は、Claude Codeに頼んでやってもらいます。あなたがやるのは、ボタンを押すことと、文章をコピーして貼り付けることだけです。</p>
+
+  <div class="guideNote">
+    <b>進め方</b>：各手順の最後にある「できた」を押すと、上のバーが進みます（この端末に記録されるので、途中でやめても続きから再開できます）。「できたらこうなります」と同じ状態になってから、次の手順へ進んでください。
+  </div>
+
+  <div class="progress"><span class="ptext" id="pText">0 / 15 完了</span><div class="bar"><div class="fill" id="pFill"></div></div></div>
 
   <div class="hr"></div>
 
-  <h2 class="secH">パートA：8ステップ手順</h2>
-  <p class="secSub">本編・第2〜7章の内容を、実際に手を動かす順番に並べ直したものです</p>
-
-  <div class="steps">
-    <div class="step">
-      <div class="num">1</div>
-      <h3>資料作成専用フォルダを1つ作る</h3>
-      <p>名前は「スライド用」など分かりやすいものでOK。ここが、あなたの「資料作成の母艦」になります。</p>
-    </div>
-    <div class="step">
-      <div class="num">2</div>
-      <h3>素材を3つだけ入れる</h3>
-      <p>過去に作った資料・ロゴやカラーが分かるもの・よく使う言い回しのメモ。完璧に揃える必要はありません。</p>
-      <div class="tip"><b>ここでのコツ：</b>「あとで増やせばいい」くらいの気持ちで、まずは3つから始めてください。</div>
-    </div>
-    <div class="step">
-      <div class="num">3</div>
-      <h3>ブランドガイド.md を1つ書き出す</h3>
-      <p>プライマリ／アクセント／背景／フォント方針／ロゴ配置／避けたい表現の6項目を、フォルダの中の1ファイルにまとめます。</p>
-    </div>
-    <div class="step">
-      <div class="num">4</div>
-      <h3>構成ルール.md を1つ書き出す</h3>
-      <p>「1スライド1メッセージ」「太字リードイン」「結論は下部＋アクセントは1色だけ」の3ルールを書いておきます。</p>
-    </div>
-    <div class="step">
-      <div class="num">5</div>
-      <h3>依頼文テンプレ.md を1つ書き出す</h3>
-      <p>ゴール／参照素材／出力形式／制約条件／確認観点の5要素を、毎回コピペできる形にしておきます（テンプレはパートBを参照）。</p>
-    </div>
-    <div class="step">
-      <div class="num">6</div>
-      <h3>最初の1枚を依頼する</h3>
-      <p>「何のための資料か」「誰に見せるか」「参考にしてほしい過去資料」の3つだけ伝えれば十分です。</p>
-    </div>
-    <div class="step">
-      <div class="num">7</div>
-      <h3>出てきたものを直す・伝え返す</h3>
-      <p>丸投げにせず、「ここの色を変えて」「文字をもう少し大きく」と対話しながら詰めていきます。</p>
-      <div class="tip"><b>ここでのコツ：</b>一発で完璧を狙わない。3往復くらいのやり取りが前提だと思っておくと気が楽です。</div>
-    </div>
-    <div class="step">
-      <div class="num">8</div>
-      <h3>完成した型を「テンプレ」として保存する</h3>
-      <p>次に似た資料を作るときは、このテンプレを呼び出すだけ。ここまでできれば、資料作成は「量産できる仕組み」に変わります。</p>
-    </div>
+  <h2 class="secH">パート0：始める前の確認</h2>
+  <p class="secSub">3つともできることを確かめてから始めます</p>
+  <div class="pre">
+    <label><input type="checkbox" data-k="pre1"> Claudeのアプリ（デスクトップ版）を開ける</label>
+    <label><input type="checkbox" data-k="pre2"> アプリの上のほうにある「Code」タブを押すと、Claude Codeの画面に切り替わる</label>
+    <label><input type="checkbox" data-k="pre3"> パソコンがインターネットにつながっている</label>
+    <div class="preNg">1つでもできない場合は、先に本編・第1章「セットアップ」を進めてください。それでも分からないときは、購入者限定LINEで「セットアップで止まっています」と送ってください。</div>
   </div>
 
   <div class="hr"></div>
 
-  <h2 class="secH">パートB：4類型別・指示文実例</h2>
-  <p class="secSub">本編・第6章の「依頼文の5要素」に沿って書いた実例です。〇〇の部分を自分の内容に置き換えてコピペしてください</p>
+  <h2 class="secH">パートA：最初の準備（1回だけ）</h2>
+  <p class="partIntro">全部で8手順、30分ほどです。一度終われば、次からはパートBだけで資料を作れます。</p>
+
+  <div class="gstep" data-k="a1">
+    <div class="gHead"><div class="gNum">A-1</div><h3>資料作成用のフォルダを作る</h3><span class="time">約2分</span></div>
+    <p>デスクトップに、資料作成専用のフォルダを1つ作ります。</p>
+    <div class="os">
+      <span class="tag win">Windows</span><span>デスクトップの何もない場所で<b>右クリック</b> →「新規作成」→「フォルダー」を選ぶ → 名前に <b>スライド用</b> と入力して <kbd>Enter</kbd></span>
+      <span class="tag mac">Mac</span><span>デスクトップの何もない場所で<b>右クリック</b>（または <kbd>control</kbd> を押しながらクリック）→「新規フォルダ」を選ぶ → 名前を <b>スライド用</b> に変えて <kbd>return</kbd></span>
+    </div>
+    <div class="okBox">デスクトップに「スライド用」という名前のフォルダがあります。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="a2">
+    <div class="gHead"><div class="gNum">A-2</div><h3>Claude Codeで、そのフォルダを開く</h3><span class="time">約2分</span></div>
+    <ol class="do">
+      <li>Claudeのアプリを開き、上のほうの<b>「Code」</b>タブを押す</li>
+      <li><b>「Local」</b>を選ぶ</li>
+      <li><b>「Select folder」</b>ボタンを押す</li>
+      <li>デスクトップの<b>「スライド用」</b>フォルダを選んで、開く（または選択）ボタンを押す</li>
+    </ol>
+    <div class="okBox">画面の下に、文字を打ち込める欄（入力欄）が出ています。ここに文章を貼り付けて、Claude Codeに作業を頼みます。</div>
+    <div class="ngBox">「Git」という言葉が入ったエラーが出たときは、本編・第1章のセットアップに戻ってください。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="a3">
+    <div class="gHead"><div class="gNum">A-3</div><h3>Skills一式をダウンロードする</h3><span class="time">約1分</span></div>
+    <p>下のボタンを押します。ファイルはパソコンの「ダウンロード」フォルダに自動で保存されます。</p>
+    <a class="dlInline" href="https://github.com/nakashiaiclaude-cpu/nakashi-slide-mode-kit/archive/refs/heads/main.zip" rel="noopener">ZIPでダウンロード ↓</a>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:8px">中身：見た目のテイスト（モード）15種類、その見本スライド、パワポで書き出すための仕組み一式です。ダウンロードしたファイルは開かなくて大丈夫です。</p>
+    <div class="okBox">「ダウンロード」フォルダに <b>nakashi-slide-mode-kit-main.zip</b> が入っています（Macでは自動で開かれて、同じ名前のフォルダになっていることもあります）。</div>
+    <div class="ngBox">ボタンを押しても何も起きないときは、ブラウザの右上や下に出ているダウンロードの表示を確認してください。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="a4">
+    <div class="gHead"><div class="gNum">A-4</div><h3>Claude Codeに、Skillsを取り込んでもらう</h3><span class="time">約3分</span></div>
+    <ol class="do">
+      <li>下の「コピーする」を押す</li>
+      <li>Claude Codeの入力欄をクリックして、貼り付ける（Windows：<kbd>Ctrl</kbd>＋<kbd>V</kbd>　Mac：<kbd>command</kbd>＋<kbd>V</kbd>）</li>
+      <li><kbd>Enter</kbd>（Macは <kbd>return</kbd>）を押して送る</li>
+    </ol>
+    <div class="msgBox" id="m4">ダウンロードフォルダにある nakashi-slide-mode-kit-main（ZIPファイルか、同じ名前のフォルダ）を使って、中身をこのフォルダの .claude/skills/slide-mode-kit/ に入れてください。ZIPの場合は展開してから入れてください。SKILL.md が .claude/skills/slide-mode-kit/ のすぐ下に来るようにしてください。終わったら、入れたものの一覧を見せてください。</div>
+    <button class="copyBtn" data-target="m4">コピーする</button>
+    <div class="tipBox">作業の許可を求める表示が出たら、許可するボタン（「Yes」「Allow」など）を押します。何回か続けて出ることがあります。</div>
+    <div class="okBox">「SKILL.md」「modes」「confirm」などの名前が並んだ一覧が返ってきます。</div>
+    <div class="ngBox">「ファイルが見つかりません」と返ってきたら、A-3のダウンロードが終わっているか確認して、同じ文をもう一度送ってください。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="a5">
+    <div class="gHead"><div class="gNum">A-5</div><h3>ちゃんと動くか確かめる</h3><span class="time">約3分</span></div>
+    <ol class="do">
+      <li>Claudeのアプリを<b>いったん閉じて、もう一度開く</b>（取り込んだSkillsを読み込ませるためです）</li>
+      <li>A-2と同じ手順で、「スライド用」フォルダを開く</li>
+      <li>入力欄に、次の言葉をそのまま打って送る</li>
+    </ol>
+    <div class="msgBox" id="m5">モード一覧見せて</div>
+    <button class="copyBtn" data-target="m5">コピーする</button>
+    <div class="okBox">「calm_natural_photobg」「dynamic_tech_glow」など、15種類のモードの一覧が返ってきます。ここまでできれば、Skillsの準備は完了です。</div>
+    <div class="ngBox">一覧が出ないときは、特典③のパートA「一覧が出てこない」を見てください。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="a6">
+    <div class="gHead"><div class="gNum">A-6</div><h3>ロゴと過去の資料を入れる（ない方は飛ばしてOK）</h3><span class="time">約3分</span></div>
+    <ol class="do">
+      <li>ロゴの画像ファイルと、過去に作った資料（PDFやパワポ）を、デスクトップの「スライド用」フォルダの中へ<b>ドラッグ</b>する（マウスでつかんで、フォルダの上で離す）</li>
+      <li>次の文をコピーして、Claude Codeに貼り付けて送る</li>
+    </ol>
+    <div class="msgBox" id="m6">このフォルダに入れたロゴの画像を、config/brand/logo.png という名前で保存し直してください。過去の資料は「過去資料」というフォルダにまとめてください。終わったら、何をどこに置いたか教えてください。</div>
+    <button class="copyBtn" data-target="m6">コピーする</button>
+    <div class="okBox">ロゴと過去資料をどこに置いたか、返事が返ってきます。</div>
+    <div class="tipBox">過去資料は3つあれば十分です。なくても先へ進めます。後から増やせます。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた（または飛ばした）</label></div>
+  </div>
+
+  <div class="gstep" data-k="a7">
+    <div class="gHead"><div class="gNum">A-7</div><h3>ブランドガイドを作る（質問に答えるだけ）</h3><span class="time">約10分</span></div>
+    <p>色や雰囲気のルールを1つのファイルにまとめます。Claude Codeが1つずつ質問してくるので、答えていくだけで完成します。</p>
+    <div class="msgBox" id="m7">スライドのブランドガイドを作りたいです。配色（3〜5色）、文字の雰囲気、ロゴの置き場所、避けたい表現について、私に質問を1つずつしてください。色のコードは分からないので、色の名前や雰囲気で答えます。過去資料があれば、それも参考にしてください。全部答え終わったら、config/brand_guide.md に保存してください。</div>
+    <button class="copyBtn" data-target="m7">コピーする</button>
+    <div class="tipBox">答えに迷ったら「おすすめで」と答えて大丈夫です。あとから何度でも直せます。</div>
+    <div class="okBox">質問に答え終わると、「config/brand_guide.md に保存しました」という返事が来ます。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="a8">
+    <div class="gHead"><div class="gNum">A-8</div><h3>構成のルールと、依頼文の型を保存する</h3><span class="time">約2分</span></div>
+    <p>「1枚に詰め込みすぎない」などの決まりごとを保存します。下の文をそのままコピーして送るだけです。</p>
+    <div class="msgBox" id="m8">次の内容を config/構成ルール.md として保存してください。
+・1枚のスライドで伝えることは1つだけにする
+・箇条書きは、先頭の2〜3語を太字にする
+・結論はスライドの下のほうにまとめ、強調に使う色は1色だけにする
+・1枚のスライドに置く要素は3〜6個にする
+
+あわせて、「ゴール」「参照素材」「出力形式」「制約条件」「確認観点」の5つを見出しにした空のひな形を、config/依頼文テンプレ.md として保存してください。</div>
+    <button class="copyBtn" data-target="m8">コピーする</button>
+    <div class="okBox">2つのファイルを保存した、という返事が来ます。これでパートAは完了です。お疲れさまでした。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="hr"></div>
+
+  <h2 class="secH">パートB：資料を作る（毎回この流れ）</h2>
+  <p class="partIntro">2回目からは、Claude Codeで「スライド用」フォルダを開いて、ここから始めます。</p>
+
+  <div class="gstep" data-k="b1">
+    <div class="gHead"><div class="gNum">B-1</div><h3>依頼文を選んで、コピーする</h3></div>
+    <p>このページの下にあるパートCの4つ（営業・セミナー・SNS・ピッチ）から、作りたい資料に一番近いものを選び、「コピーする」を押します。</p>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="b2">
+    <div class="gHead"><div class="gNum">B-2</div><h3>貼り付けて、〇〇を書き換える</h3></div>
+    <ol class="do">
+      <li>Claude Codeの入力欄に貼り付ける</li>
+      <li>〇〇の部分をクリックして消し、あなたの内容を打ち込む</li>
+    </ol>
+    <div class="tipBox">書き換えの途中で <kbd>Enter</kbd> を押すと、その時点で送られてしまいます。改行したいときは <kbd>Shift</kbd>＋<kbd>Enter</kbd> を押します。途中で送ってしまっても大丈夫です。「さっきのは途中でした。次の内容でお願いします」と送り直してください。</div>
+    <div class="tipBox">書き方が分からない〇〇は、「おまかせ」と書いておけばClaude Codeが考えてくれます。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="b3">
+    <div class="gHead"><div class="gNum">B-3</div><h3>送って、質問に答える</h3></div>
+    <p><kbd>Enter</kbd> で送ります。Claude Codeから「このテイスト（モード）でいいですか」などの質問が来たら答えます。迷ったら「おすすめで」と答えてください。</p>
+    <div class="okBox">「スライドを作成しました」という返事が来ます。作り終わるまで数分かかることがあります。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="b4">
+    <div class="gHead"><div class="gNum">B-4</div><h3>できた資料を見る</h3></div>
+    <p>次の文を送ると、できた資料がブラウザ（ホームページを見るソフト）で開きます。</p>
+    <div class="msgBox" id="mb4">いま作ったスライドを、ブラウザで開いてください。</div>
+    <button class="copyBtn" data-target="mb4">コピーする</button>
+    <div class="okBox">ブラウザにスライドが表示されます。</div>
+    <div class="ngBox">開かないときは、デスクトップの「スライド用」フォルダを開き、新しくできた「.html」で終わるファイルをダブルクリックしてください。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="b5">
+    <div class="gHead"><div class="gNum">B-5</div><h3>直したいところを伝える</h3></div>
+    <p>気になるところがあれば、特典④の言い方をコピーして使います。どう言えばいいか分からないときは、特典④の最後にある「直し依頼の型」を使ってください。</p>
+    <div class="tipBox">1回に直すのは1〜2か所までにすると、ほかの場所が崩れにくくなります。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた（直すところがなければ押す）</label></div>
+  </div>
+
+  <div class="gstep" data-k="b6">
+    <div class="gHead"><div class="gNum">B-6</div><h3>PDFにして保存する</h3></div>
+    <ol class="do">
+      <li>B-4でスライドを開いたブラウザで、印刷の画面を出す（Windows：<kbd>Ctrl</kbd>＋<kbd>P</kbd>　Mac：<kbd>command</kbd>＋<kbd>P</kbd>）</li>
+      <li>「送信先」や「プリンター」の欄で<b>「PDFに保存」</b>（Macは左下の「PDF」→「PDFとして保存」）を選ぶ</li>
+      <li>「保存」を押し、保存する場所を選ぶ</li>
+    </ol>
+    <div class="okBox">選んだ場所に、PDFファイルができています。</div>
+    <div class="tipBox">パワポ（あとから文字を直せる形）で欲しいときは、「この資料を、編集できるPPTXでも出してください」と送ってください。</div>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="gstep" data-k="b7">
+    <div class="gHead"><div class="gNum">B-7</div><h3>次も使える「型」として保存する</h3></div>
+    <p>同じような資料をまた作りそうなら、次の文の〇〇を書き換えて送ります。次からは「〇〇用の型で作って」と頼むだけになります。</p>
+    <div class="msgBox" id="mb7">今回の構成とデザインを、〇〇用（例：営業提案用）の型として保存してください。次からこの型を使って作れるようにしてください。</div>
+    <button class="copyBtn" data-target="mb7">コピーする</button>
+    <div class="checkRow"><label><input type="checkbox"> できた</label></div>
+  </div>
+
+  <div class="hr"></div>
+
+  <h2 class="secH">パートC：4場面別・依頼文の実例</h2>
+  <p class="secSub">B-1で使う依頼文です。〇〇の部分をあなたの内容に書き換えてください（分からないところは「おまかせ」でOK）</p>
 
   <div class="personaGrid">
 
     <div class="persona">
       <div class="ptitle"><span class="icon">営</span>営業・提案資料</div>
       <div class="promptBox" id="p1">【ゴール】
-〇〇様向けに、〇〇（新サービス／既存サービス）導入のご提案資料を作りたい。初回商談で使う。
+〇〇様向けに、〇〇（サービス名）導入のご提案資料を作りたい。初回の商談で使う。
 
 【参照素材】
-ブランドガイド／過去の提案資料〇〇／サービス概要メモ
+ブランドガイド／過去資料フォルダの提案資料／サービスの説明メモ〇〇
 
 【出力形式】
-スライド8〜10枚、PDF形式で
+スライド8〜10枚
 
 【制約条件】
-色はブランドガイドの配色のみ。1枚に詰め込みすぎない。価格は最後の1枚にまとめる
+色はブランドガイドの配色だけを使う。1枚に詰め込みすぎない。価格は最後の1枚にまとめる
 
 【確認観点】
-課題→解決策→提供内容→価格の流れになっているか／結論を先に示す構成が崩れていないか</div>
+課題→解決策→提供内容→価格の順になっているか／結論が先に書かれているか</div>
       <button class="copyBtn" data-target="p1">コピーする</button>
     </div>
 
     <div class="persona">
       <div class="ptitle"><span class="icon">セ</span>セミナー・講座資料</div>
       <div class="promptBox" id="p2">【ゴール】
-〇〇について教える、90分セミナーのスライドを作りたい。参加者は初心者〇名。
+〇〇について教える、90分のセミナーのスライドを作りたい。参加者は初心者〇名。
 
 【参照素材】
-ブランドガイド／構成ルール／過去のセミナー資料〇〇
+ブランドガイド／構成ルール／過去資料フォルダのセミナー資料
 
 【出力形式】
-スライド20〜25枚、投影用（16:9）で
+スライド20〜25枚、プロジェクターに映す横長（16:9）で
 
 【制約条件】
-1スライド1メッセージを厳守。文字を詰め込まない。専門用語には必ず言い換えを添える
+1枚に伝えることは1つだけ。文字を詰め込まない。専門用語には言い換えを添える
 
 【確認観点】
-聞き手がついてこられる情報量になっているか／各スライドの結論が下部に置かれているか</div>
+初心者がついてこられる量になっているか／各スライドの結論が下にあるか</div>
       <button class="copyBtn" data-target="p2">コピーする</button>
     </div>
 
     <div class="persona">
-      <div class="ptitle"><span class="icon">S</span>SNSビジュアル</div>
+      <div class="ptitle"><span class="icon">S</span>SNS用の画像</div>
       <div class="promptBox" id="p3">【ゴール】
-〇〇というテーマで、X/Instagram用のカルーセル画像（5枚）を作りたい。
+〇〇というテーマで、Instagram（またはX）に投稿する画像を5枚作りたい。
 
 【参照素材】
-ブランドガイド／過去に反応が良かった投稿〇〇
+ブランドガイド／過去に反応が良かった投稿〇〇（なければ「なし」）
 
 【出力形式】
-正方形1080×1080px、5枚1セットで
+正方形（1080×1080）の画像を5枚1セットで
 
 【制約条件】
-1枚あたりの文字量は最小限に。1枚目のフックとなる1文だけ極端に大きく
+1枚あたりの文字は少なめに。1枚目の一言だけを特に大きく
 
 【確認観点】
-スマホの小さい画面でも、フリック中に一瞬で意味が伝わるか</div>
+スマホの小さな画面で、ぱっと見て意味が伝わるか</div>
       <button class="copyBtn" data-target="p3">コピーする</button>
     </div>
 
     <div class="persona">
-      <div class="ptitle"><span class="icon">ピ</span>ピッチ・資金調達資料</div>
+      <div class="ptitle"><span class="icon">ピ</span>事業説明・資金調達の資料</div>
       <div class="promptBox" id="p4">【ゴール】
-〇〇事業について、投資家/金融機関向けのピッチ資料を作りたい。持ち時間5分のプレゼンで使う。
+〇〇事業について、金融機関（または投資家）に説明する資料を作りたい。持ち時間は5分。
 
 【参照素材】
-ブランドガイド／事業計画メモ〇〇／数値データ〇〇
+ブランドガイド／事業計画のメモ〇〇／数字のデータ〇〇
 
 【出力形式】
-スライド10〜12枚、印刷配布も想定してPDF形式で
+スライド10〜12枚。印刷して配ることも考えた形で
 
 【制約条件】
-装飾は最小限に。根拠となる数字は必ず出典・期間つきで記載する
+飾りは控えめに。数字には、いつの・何の数字かを必ず書く
 
 【確認観点】
-結論の言い切りが各スライドの上部にあるか／数字に比較対象がついているか</div>
+各スライドの言いたいことが上に書かれているか／数字に比べる相手（去年や平均など）がついているか</div>
       <button class="copyBtn" data-target="p4">コピーする</button>
     </div>
 
   </div>
 
-  <div class="hr"></div>
-
-  <h2 class="secH">パートC：Skillsパッケージ本体をダウンロード</h2>
-  <p class="secSub">ここまで読んだ「手順」を、実際に動く形でそのままお渡しします</p>
-
-  <div class="downloadBox">
-    <div class="dtitle"><span class="dicon">DL</span>slide-mode-kit（実際に運用しているスライドSkills一式）</div>
-    <p>パートA・Bで説明した仕組みを、<strong>私が実際の資料作成で使っているSkillsフォルダそのまま</strong>パッケージにしました。中身は次のとおりです。</p>
-    <ul class="kitList">
-      <li><b>見た目のテイスト（モード）15種類</b>：配色・書体・部品の描き方をモードごとに定義したファイル</li>
-      <li><b>確認用サンプルスライド</b>：15モードすべての見本（選ぶ前に見た目を確認できます）</li>
-      <li><b>過去資料チェック</b>：フォルダ内にあなたのテンプレや過去資料があれば、それに近いモードから提案します</li>
-      <li><b>画像生成の選択</b>：写真や手描き風の質感が要るモードは、ChatGPTとNotebookLMのどちらで作るかを選べます</li>
-      <li><b>編集できるPPTXの書き出し</b>：PowerPointで直せる形で出力するPythonスクリプト（参照実装）</li>
-    </ul>
-    <a class="downloadBtn" href="https://github.com/nakashiaiclaude-cpu/nakashi-slide-mode-kit/archive/refs/heads/main.zip" rel="noopener">ZIPでダウンロード ↓</a>
-    <div class="installSteps">
-      <div class="isTitle">導入は3ステップ</div>
-      <ol>
-        <li>ダウンロードしたZIPを展開する（フォルダ名は <code>nakashi-slide-mode-kit-main</code>）</li>
-        <li>中身を、資料作成用フォルダの <code>.claude/skills/slide-mode-kit/</code> に置く（<code>.claude</code> フォルダがなければ作る）</li>
-        <li>Claude Codeを開き、「モード一覧見せて」と送る。15種類の一覧が返ってくれば導入完了</li>
-      </ol>
-    </div>
-    <div class="downloadNote">ファイルの中身をブラウザで見たい方は<a href="https://github.com/nakashiaiclaude-cpu/nakashi-slide-mode-kit" target="_blank" rel="noopener">GitHubのページ</a>からも確認できます（登録やログインは不要です）。詳しい使い方はフォルダ内の README.md にまとめています。導入で止まったときは、購入者限定LINEからご相談ください。</div>
-  </div>
-
   <div class="closing">
-    〇〇の部分を、あなたの案件の数字と言葉に置き換えて使ってください。<br>
-    デザインの細かいルールは特典②、直したいときの言い方は特典④にまとめています。
+    止まったところがあれば、特典③で同じ悩みを探してください。<br>
+    それでも進めないときは、購入者限定LINEに「特典①のA-4で止まっています」のように、手順の番号を添えて送ってください。
   </div>
   <div class="madeby">― この特典も、なかしーがClaude Codeで作りました ―</div>
 </div>
 </div>
 
 <script>
+  function copyText(text, btn){
+    const done = ()=>{ btn.textContent='コピーしました'; btn.classList.add('done'); setTimeout(()=>{ btn.textContent='コピーする'; btn.classList.remove('done'); },1800); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(()=>{ fallback(text); done(); });
+    } else { fallback(text); done(); }
+  }
+  function fallback(text){
+    const ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta);
+  }
   document.querySelectorAll('.copyBtn').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const text = document.getElementById(btn.dataset.target).innerText;
-      navigator.clipboard.writeText(text).then(()=>{
-        btn.textContent = 'コピーしました';
-        btn.classList.add('done');
-        setTimeout(()=>{ btn.textContent='コピーする'; btn.classList.remove('done'); }, 1800);
-      });
-    });
+    btn.addEventListener('click', ()=> copyText(document.getElementById(btn.dataset.target).innerText, btn));
   });
+
+  const KEY='nakashi_t1_progress';
+  let state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ state={}; }
+  const save=()=>{ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} };
+  const steps=[...document.querySelectorAll('.gstep')];
+  const total=steps.length;
+  function updateBar(){
+    const n=steps.filter(s=>state[s.dataset.k]).length;
+    document.getElementById('pText').textContent = n + ' / ' + total + ' 完了';
+    document.getElementById('pFill').style.width = (n/total*100) + '%';
+  }
+  steps.forEach(s=>{
+    const cb=s.querySelector('.checkRow input');
+    cb.checked=!!state[s.dataset.k];
+    s.classList.toggle('done', cb.checked);
+    cb.addEventListener('change', ()=>{ state[s.dataset.k]=cb.checked; s.classList.toggle('done', cb.checked); save(); updateBar(); });
+  });
+  document.querySelectorAll('.pre input[data-k]').forEach(cb=>{
+    cb.checked=!!state[cb.dataset.k];
+    cb.addEventListener('change', ()=>{ state[cb.dataset.k]=cb.checked; save(); });
+  });
+  updateBar();
 </script>
 </body>
 </html>

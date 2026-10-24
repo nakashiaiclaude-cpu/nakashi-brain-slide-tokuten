@@ -67,12 +67,12 @@
     <div class="hr"></div>
 
     <h2 class="secH">パートA：すぐ使えるスターターテンプレート3点</h2>
-    <p class="secSub">まずはこのテンプレートを丸ごとコピーして、あなたのフォルダに保存してください。〔　〕の部分だけ書き換えれば、そのままClaude Codeに読ませられます</p>
+    <p class="secSub">「コピーする」を押して、Claude Codeの入力欄に貼り付けて送るだけです。Claude Codeが〔　〕の部分を1つずつ質問してくるので、答えていくとファイルとして保存されます。特典①のA-7・A-8を済ませた方は、足りない項目を書き足す目的で使えます</p>
 
     <div class="tplCard">
       <div class="tplHead">
-        <div><div class="tt">① ブランドガイド.md（第4章対応）</div><div class="tf">config/brand_guide.md として保存</div></div>
-        <button class="copyBtn" data-target="tpl1">コピーする</button>
+        <div><div class="tt">① ブランドガイド.md（第4章対応）</div><div class="tf">コピーして送ると config/brand_guide.md に保存されます</div></div>
+        <button class="copyBtn" data-target="tpl1" data-file="config/brand_guide.md">コピーする</button>
       </div>
       <div class="tplBody"><textarea id="tpl1" readonly># ブランドガイド
 
@@ -104,8 +104,8 @@
 
     <div class="tplCard">
       <div class="tplHead">
-        <div><div class="tt">② 構成ルール.md（第5章対応）</div><div class="tf">config/構成ルール.md として保存</div></div>
-        <button class="copyBtn" data-target="tpl2">コピーする</button>
+        <div><div class="tt">② 構成ルール.md（第5章対応）</div><div class="tf">コピーして送ると config/構成ルール.md に保存されます</div></div>
+        <button class="copyBtn" data-target="tpl2" data-file="config/構成ルール.md">コピーする</button>
       </div>
       <div class="tplBody"><textarea id="tpl2" readonly># 構成ルール
 
@@ -132,8 +132,8 @@
 
     <div class="tplCard">
       <div class="tplHead">
-        <div><div class="tt">③ 依頼文テンプレ.md（第6章対応）</div><div class="tf">config/依頼文テンプレ.md として保存</div></div>
-        <button class="copyBtn" data-target="tpl3">コピーする</button>
+        <div><div class="tt">③ 依頼文テンプレ.md（第6章対応）</div><div class="tf">コピーして送ると config/依頼文テンプレ.md に保存されます</div></div>
+        <button class="copyBtn" data-target="tpl3" data-file="config/依頼文テンプレ.md">コピーする</button>
       </div>
       <div class="tplBody"><textarea id="tpl3" readonly># 依頼文テンプレ（5要素）
 
@@ -236,20 +236,21 @@
   document.querySelectorAll('.copyBtn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       const ta = document.getElementById(btn.dataset.target);
+      const text = '次の内容を ' + btn.dataset.file + ' として保存してください。〔　〕の部分は、私に1つずつ質問して埋めてください。すでに同じファイルがある場合は、上書きせずに、足りない項目だけを書き足してください。\n\n' + ta.value;
       const markCopied = ()=>{
         btn.textContent = 'コピーしました';
         btn.classList.add('copied');
         setTimeout(()=>{ btn.textContent = 'コピーする'; btn.classList.remove('copied'); }, 1600);
       };
-      ta.select();
-      if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(ta.value).then(markCopied).catch(()=>{
-          document.execCommand('copy');
-          markCopied();
-        });
-      } else {
-        document.execCommand('copy');
+      const fallback = ()=>{
+        const t=document.createElement('textarea'); t.value=text; t.style.position='fixed'; t.style.opacity='0';
+        document.body.appendChild(t); t.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(t);
         markCopied();
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(markCopied).catch(fallback);
+      } else {
+        fallback();
       }
     });
   });

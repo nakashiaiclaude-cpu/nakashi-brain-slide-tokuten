@@ -85,6 +85,12 @@
     .promptBox .fillin{background:#fff3e0;color:#b25a1e}
     @page{size:A4;margin:16mm}
   }
+  .howto{margin:14px 0;background:var(--teal-soft);border-radius:12px;padding:14px 18px;font-size:14px}
+  .howto .hTitle{font-weight:800;color:var(--teal);margin-bottom:4px}
+  .howto ol{margin:0;padding-left:20px}
+  .howto li{margin-bottom:4px}
+  .howto .hNote{font-size:12.5px;color:#204a53;margin-top:6px}
+  kbd{font-family:inherit;font-size:12px;background:#fff;border:1px solid #cfd3dd;border-bottom-width:2px;border-radius:5px;padding:0 6px}
 </style>
 </head>
 <body>
@@ -233,6 +239,17 @@
         <p>プロンプト内で <span class="fillinDemo">｛　　　｝</span> のように囲まれている部分が、あなた自身の内容に書き換える必要がある箇所です。コピーしたあと、｛　｝ごと具体的な内容に置き換えてから使ってください（｛　｝の記号ごと消してOKです）。</p>
       </div>
 
+      <div class="howto">
+        <div class="hTitle">使い方</div>
+        <ol>
+          <li>下の「プロンプトをコピー」を押す</li>
+          <li>Claude Codeの入力欄に貼り付ける</li>
+          <li>｛　｝で囲まれた部分を、上から順に1つずつ自分の内容に書き換える（｛　｝の記号も消す）。分からないところは「おまかせ」と書けばOK</li>
+          <li><kbd>Enter</kbd> を押して送る</li>
+        </ol>
+        <div class="hNote">書き換えの途中で <kbd>Enter</kbd> を押すと送られてしまいます。改行したいときは <kbd>Shift</kbd>＋<kbd>Enter</kbd> を使ってください。</div>
+      </div>
+
       <div class="copyBar"><button class="copyBtn" id="copyPromptBtn" onclick="copyMasterPrompt()">プロンプトをコピー</button></div>
       <div class="promptBoxWrap">
         <div class="promptBox" id="promptBoxDisplay"></div>
@@ -345,7 +362,7 @@ const masterPrompt = `あなたはプロのスライドデザイナーです。�
 ・文字と背景のコントラスト比はWCAG AA基準（4.5:1）以上にする
 ・同系色でグラデーションを作り、安っぽさを防ぐ
 ・業種のイメージ色を無視しない（業種：｛ここに業種を入力（例：医療、飲食、IT）｝）
-・メインカラー：｛ここにカラーコードを入力（例：#1a2233）｝、アクセントカラー：｛ここにカラーコードを入力（例：#e8772e）｝
+・メインカラー：｛メインの色を入力（例：濃い紺。ブランドガイドがあれば「ブランドガイドの色」）｝、アクセントカラー：｛強調に使う色を入力（例：オレンジ）｝
 
 【余白・レイアウトルール】
 ・要素と要素の間に「呼吸できる余白」を置く
@@ -398,7 +415,11 @@ function copyMasterPrompt(){
     btn.classList.add('copied');
     setTimeout(()=>{btn.textContent=original;btn.classList.remove('copied');},2000);
   }).catch(()=>{
-    btn.textContent = 'コピーできませんでした（手動で選択してください）';
+    const ta=document.createElement('textarea'); ta.value=masterPrompt; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    let ok=false; try{ ok=document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+    btn.textContent = ok ? 'コピーしました' : 'コピーできませんでした（手動で選択してください）';
     setTimeout(()=>{btn.textContent='プロンプトをコピー';},2500);
   });
 }
