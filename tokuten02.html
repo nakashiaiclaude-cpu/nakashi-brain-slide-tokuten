@@ -2,35 +2,36 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>スライドデザインルール集30選＋テンプレート集｜特典②</title>
-<style>
+<style>/* fontbump-v1 */
   :root{--panel:#fff;--ink:#1a2233;--muted:#5b6275;--line:#e6e8f0;--teal:#2f7a8a;--teal-soft:#eaf3f4;--orange:#e8772e;--cream:#fdf0d9;--shadow:0 10px 40px rgba(20,24,60,.12)}
   *{box-sizing:border-box}
   body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,Meiryo,system-ui,sans-serif;color:var(--ink);background:#fbf9f5;line-height:1.7;padding:32px 16px 90px}
   .logo{position:fixed;top:14px;right:16px;z-index:50;height:28px;filter:drop-shadow(0 2px 6px rgba(26,34,51,.18))}
   .wrap{max-width:860px;margin:0 auto}
   .card{background:var(--panel);border-radius:20px;box-shadow:var(--shadow);padding:40px 32px}
-  .eyebrow{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--teal);font-weight:800;background:var(--teal-soft);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  .eyebrow{display:inline-block;font-size:14.5px;letter-spacing:.12em;color:var(--teal);font-weight:800;background:var(--teal-soft);padding:6px 14px;border-radius:999px;margin-bottom:18px}
   h1{font-size:27px;line-height:1.4;margin:0 0 10px;font-weight:900}
-  .lead{color:var(--muted);font-size:14px;margin:0 0 6px}
+  .lead{color:var(--muted);font-size:15.5px;margin:0 0 6px}
   .hr{height:1px;background:var(--line);margin:26px 0}
   h2.secH{font-size:19px;margin:0 0 6px;font-weight:800}
-  p.secSub{color:var(--muted);font-size:13px;margin:0 0 18px}
+  p.secSub{color:var(--muted);font-size:14.5px;margin:0 0 18px}
 
   .toolbar{display:flex;justify-content:flex-end;margin-bottom:4px}
-  .pdfBtn{border:1.5px solid var(--navy);background:var(--navy);color:#fff;font-size:12.5px;font-weight:800;border-radius:9px;padding:8px 16px;cursor:pointer}
+  .pdfBtn{border:1.5px solid var(--navy);background:var(--navy);color:#fff;font-size:14px;font-weight:800;border-radius:9px;padding:8px 16px;cursor:pointer}
   .pdfBtn:hover{background:var(--orange);border-color:var(--orange)}
 
   .cheatGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
   .cheat{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
-  .cheat .cn{font-size:12.5px;color:var(--teal);font-weight:800;margin-bottom:4px}
+  .cheat .cn{font-size:14px;color:var(--teal);font-weight:800;margin-bottom:4px}
   .cheat .cv{font-size:19px;font-weight:900;color:var(--ink)}
-  .cheat .cd{font-size:12px;color:var(--muted);margin-top:4px}
+  .cheat .cd{font-size:13.5px;color:var(--muted);margin-top:4px}
 
   .tplCard{border:1px solid var(--line);border-radius:14px;padding:22px 22px;margin:16px 0;background:#fff}
   .tplHead{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-  .tplHead .tn{width:30px;height:30px;border-radius:9px;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;flex:none}
+  .tplHead .tn{width:30px;height:30px;border-radius:9px;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15.5px;flex:none}
   .tplHead .tt{font-size:16px;font-weight:800}
   .tplBody{display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start}
   .wireframe{width:200px;height:120px;background:var(--cream);border-radius:8px;padding:8px;flex:none;display:flex;flex-direction:column;gap:6px}
@@ -38,42 +39,42 @@
   .wf-box.accent{border-color:var(--orange);background:#fceee0}
   .tplImg{width:104px;height:104px;object-fit:contain;flex:none;filter:drop-shadow(0 6px 10px rgba(20,24,60,.16))}
   .tplText{flex:1;min-width:180px}
-  .tplText .use{font-size:13.5px;color:var(--ink);margin-bottom:6px}
-  .tplText .when{font-size:12.5px;color:var(--muted)}
+  .tplText .use{font-size:15px;color:var(--ink);margin-bottom:6px}
+  .tplText .when{font-size:14px;color:var(--muted)}
   .tplText .when b{color:var(--teal)}
 
   .searchBox{position:sticky;top:12px;z-index:5;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px;box-shadow:0 4px 16px rgba(20,24,60,.06)}
-  .searchBox input{border:0;outline:0;flex:1;font-size:15px;color:var(--ink);font-family:inherit}
-  .count{font-size:12.5px;color:var(--muted);margin:6px 2px 18px}
+  .searchBox input{border:0;outline:0;flex:1;font-size:16.5px;color:var(--ink);font-family:inherit}
+  .count{font-size:14px;color:var(--muted);margin:6px 2px 18px}
   .catFilters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 6px}
-  .catFilters button{border:1.5px solid var(--line);background:#fff;color:var(--muted);font-size:12.5px;font-weight:700;border-radius:999px;padding:6px 13px;cursor:pointer}
+  .catFilters button{border:1.5px solid var(--line);background:#fff;color:var(--muted);font-size:14px;font-weight:700;border-radius:999px;padding:6px 13px;cursor:pointer}
   .catFilters button.active{background:var(--teal);border-color:var(--teal);color:#fff}
   .cat{font-size:16.5px;font-weight:800;margin:28px 0 6px;display:flex;align-items:center;gap:10px}
-  .cat .tag{font-size:12px;font-weight:800;color:#fff;background:var(--teal);width:24px;height:24px;border-radius:8px;display:grid;place-items:center;flex:none}
+  .cat .tag{font-size:13.5px;font-weight:800;color:#fff;background:var(--teal);width:24px;height:24px;border-radius:8px;display:grid;place-items:center;flex:none}
   .rule{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;background:#fff;display:flex;gap:14px;align-items:center}
   .rule img.ruleImg{width:88px;height:88px;object-fit:contain;flex:none;filter:drop-shadow(0 5px 8px rgba(20,24,60,.15))}
   .rule .rtext{flex:1;min-width:0}
-  .rule .rt{font-size:14.5px;font-weight:800;color:var(--ink)}
+  .rule .rt{font-size:16px;font-weight:800;color:var(--ink)}
   .rule .rt .n{color:var(--orange);margin-right:6px}
-  .rule .rd{font-size:13.5px;color:var(--muted);margin-top:5px}
-  .closing{margin-top:26px;text-align:center;color:var(--muted);font-size:14px;border-top:1px dashed var(--line);padding-top:20px}
-  .madeby{margin-top:14px;text-align:center;font-size:12.5px;color:#9aa0b5}
+  .rule .rd{font-size:15px;color:var(--muted);margin-top:5px}
+  .closing{margin-top:26px;text-align:center;color:var(--muted);font-size:15.5px;border-top:1px dashed var(--line);padding-top:20px}
+  .madeby{margin-top:14px;text-align:center;font-size:14px;color:#9aa0b5}
 
   .promptSection{margin-top:8px}
   .promptNote{background:var(--cream);border:1.5px dashed var(--orange);border-radius:12px;padding:14px 16px;margin-bottom:14px}
-  .promptNote .noteLabel{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:800;color:var(--orange);margin-bottom:6px}
-  .promptNote p{margin:0 0 6px;font-size:13px;color:var(--ink)}
+  .promptNote .noteLabel{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:800;color:var(--orange);margin-bottom:6px}
+  .promptNote p{margin:0 0 6px;font-size:14.5px;color:var(--ink)}
   .promptNote p:last-child{margin-bottom:0}
   .promptNote .fillinDemo{display:inline-block;background:#fff3e0;border:1.5px solid var(--orange);border-radius:5px;padding:0 5px;color:#b25a1e;font-weight:700}
   .promptBoxWrap{position:relative}
-  .promptBox{background:#1a2233;color:#eef1f8;border-radius:14px;padding:22px 20px 20px;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:12.5px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow-y:auto}
+  .promptBox{background:#1a2233;color:#eef1f8;border-radius:14px;padding:22px 20px 20px;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:14px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow-y:auto}
   .promptBox .fillin{background:rgba(232,119,46,.28);border:1px solid var(--orange);border-radius:4px;padding:0 4px;color:#ffd9b8;font-weight:700}
   .promptBox .ph{color:#8b93ab}
   .copyBar{display:flex;justify-content:flex-end;gap:8px;margin-bottom:8px}
-  .copyBtn{border:1.5px solid var(--orange);background:var(--orange);color:#fff;font-size:12.5px;font-weight:800;border-radius:9px;padding:8px 16px;cursor:pointer}
+  .copyBtn{border:1.5px solid var(--orange);background:var(--orange);color:#fff;font-size:14px;font-weight:800;border-radius:9px;padding:8px 16px;cursor:pointer}
   .copyBtn:hover{background:#d4661f}
   .copyBtn.copied{background:var(--teal);border-color:var(--teal)}
-  @media(max-width:560px){.promptBox{font-size:11.5px;padding:18px 14px}}
+  @media(max-width:560px){.promptBox{font-size:13px;padding:18px 14px}}
   @media(max-width:560px){.card{padding:26px 18px}h1{font-size:18px}.cheatGrid{grid-template-columns:1fr 1fr}.wireframe{width:150px}.tplImg{width:76px;height:76px}.rule img.ruleImg{width:64px;height:64px}}
 
   @media print{
@@ -85,12 +86,12 @@
     .promptBox .fillin{background:#fff3e0;color:#b25a1e}
     @page{size:A4;margin:16mm}
   }
-  .howto{margin:14px 0;background:var(--teal-soft);border-radius:12px;padding:14px 18px;font-size:14px}
+  .howto{margin:14px 0;background:var(--teal-soft);border-radius:12px;padding:14px 18px;font-size:15.5px}
   .howto .hTitle{font-weight:800;color:var(--teal);margin-bottom:4px}
   .howto ol{margin:0;padding-left:20px}
   .howto li{margin-bottom:4px}
-  .howto .hNote{font-size:12.5px;color:#204a53;margin-top:6px}
-  kbd{font-family:inherit;font-size:12px;background:#fff;border:1px solid #cfd3dd;border-bottom-width:2px;border-radius:5px;padding:0 6px}
+  .howto .hNote{font-size:14px;color:#204a53;margin-top:6px}
+  kbd{font-family:inherit;font-size:13.5px;background:#fff;border:1px solid #cfd3dd;border-bottom-width:2px;border-radius:5px;padding:0 6px}
 </style>
 </head>
 <body>
@@ -256,7 +257,7 @@
       </div>
     </div>
 
-    <div class="closing">迷ったら、この30個のどれかに当てはめて確認してください。<br>ルールは覚えなくて大丈夫です。辞書のように、必要なときに検索して使ってください。</div>
+    <div class="closing">迷ったら、この30個のどれかに当てはめて確認してください。<br>ルールは覚えなくて大丈夫です。辞書のように、必要なときに検索して使ってください。<br>使い方で止まったときは、購入者限定LINEに「特典②の〇〇で止まっています」のように、特典の番号と場所を添えて送ってください。</div>
     <div class="madeby">― この特典も、なかしーがClaude Codeで作りました ―</div>
   </div>
 </div>

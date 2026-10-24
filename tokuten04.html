@@ -2,39 +2,40 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>意図通りに直らない時の壁打ちプロンプト集｜特典④</title>
-<style>
+<style>/* fontbump-v1 */
   :root{--panel:#fff;--ink:#1a2233;--muted:#5b6275;--line:#e6e8f0;--teal:#2f7a8a;--teal-soft:#eaf3f4;--orange:#e8772e;--shadow:0 10px 40px rgba(20,24,60,.12)}
   *{box-sizing:border-box}
   body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",YuGothic,Meiryo,system-ui,sans-serif;color:var(--ink);background:#fbf9f5;line-height:1.7;padding:32px 16px 90px}
   .logo{position:fixed;top:14px;right:16px;z-index:50;height:28px;filter:drop-shadow(0 2px 6px rgba(26,34,51,.18))}
   .wrap{max-width:860px;margin:0 auto}
   .card{background:var(--panel);border-radius:20px;box-shadow:var(--shadow);padding:40px 32px}
-  .eyebrow{display:inline-block;font-size:13px;letter-spacing:.12em;color:var(--teal);font-weight:800;background:var(--teal-soft);padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  .eyebrow{display:inline-block;font-size:14.5px;letter-spacing:.12em;color:var(--teal);font-weight:800;background:var(--teal-soft);padding:6px 14px;border-radius:999px;margin-bottom:18px}
   h1{font-size:24px;line-height:1.4;margin:0 0 10px;font-weight:900}
-  .lead{color:var(--muted);font-size:14.5px;margin:0 0 6px}
+  .lead{color:var(--muted);font-size:16px;margin:0 0 6px}
   .hr{height:1px;background:var(--line);margin:26px 0}
   .cat{font-size:17px;font-weight:800;margin:30px 0 12px;display:flex;align-items:center;gap:10px}
-  .cat .tag{font-size:12px;font-weight:800;color:#fff;background:var(--teal);width:24px;height:24px;border-radius:8px;display:grid;place-items:center;flex:none}
+  .cat .tag{font-size:13.5px;font-weight:800;color:#fff;background:var(--teal);width:24px;height:24px;border-radius:8px;display:grid;place-items:center;flex:none}
 
   .item{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:12px 0;background:#fff}
-  .ng{font-size:13px;color:#9a3b3b;background:#fbeaea;border-radius:8px;padding:8px 11px;margin-bottom:8px}
+  .ng{font-size:14.5px;color:#9a3b3b;background:#fbeaea;border-radius:8px;padding:8px 11px;margin-bottom:8px}
   .ng b{margin-right:4px}
-  .why{font-size:12.5px;color:var(--muted);margin-bottom:10px}
-  .promptBox{font-size:13.5px;background:#fdf7ee;border:1px solid #f0dbb8;border-radius:10px;padding:12px 14px;white-space:pre-wrap;line-height:1.65;color:var(--ink)}
-  .promptBox .plabel{display:block;font-size:11.5px;font-weight:800;color:var(--teal);margin-bottom:5px}
-  .copyBtn{margin-top:8px;border:1.5px solid var(--line);background:#fff;color:var(--muted);font-size:12px;font-weight:700;border-radius:8px;padding:6px 12px;cursor:pointer}
+  .why{font-size:14px;color:var(--muted);margin-bottom:10px}
+  .promptBox{font-size:15px;background:#fdf7ee;border:1px solid #f0dbb8;border-radius:10px;padding:12px 14px;white-space:pre-wrap;line-height:1.65;color:var(--ink)}
+  .promptBox .plabel{display:block;font-size:13px;font-weight:800;color:var(--teal);margin-bottom:5px}
+  .copyBtn{margin-top:8px;border:1.5px solid var(--line);background:#fff;color:var(--muted);font-size:13.5px;font-weight:700;border-radius:8px;padding:6px 12px;cursor:pointer}
   .copyBtn:hover{border-color:var(--orange);color:var(--orange)}
   .copyBtn.done{background:var(--orange);border-color:var(--orange);color:#fff}
 
-  .howto{margin-top:18px;background:var(--teal-soft);border-radius:12px;padding:14px 18px;font-size:14px}
+  .howto{margin-top:18px;background:var(--teal-soft);border-radius:12px;padding:14px 18px;font-size:15.5px}
   .howto .hTitle{font-weight:800;color:var(--teal);margin-bottom:4px}
   .howto ol{margin:0;padding-left:20px}
   .howto li{margin-bottom:4px}
-  .howto .hNote{font-size:12.5px;color:#204a53;margin-top:6px}
-  .closing{margin-top:26px;text-align:center;color:var(--muted);font-size:14px;border-top:1px dashed var(--line);padding-top:20px}
-  .madeby{margin-top:14px;text-align:center;font-size:12.5px;color:#9aa0b5}
+  .howto .hNote{font-size:14px;color:#204a53;margin-top:6px}
+  .closing{margin-top:26px;text-align:center;color:var(--muted);font-size:15.5px;border-top:1px dashed var(--line);padding-top:20px}
+  .madeby{margin-top:14px;text-align:center;font-size:14px;color:#9aa0b5}
   @media(max-width:560px){.card{padding:26px 18px}h1{font-size:19px}}
 </style>
 </head>
@@ -235,7 +236,7 @@
     </div>
 
     <div class="closing">
-      「なんか違う」と感じたら、<b>どの要素の何をどう変えたいか</b>まで分けて伝えてください。
+      「なんか違う」と感じたら、<b>どの要素の何をどう変えたいか</b>まで分けて伝えてください。<br>使い方で止まったときは、購入者限定LINEに「特典④の〇〇で止まっています」のように、特典の番号と場所を添えて送ってください。
     </div>
     <div class="madeby">― この特典も、なかしーがClaude Codeで作りました ―</div>
   </div>
